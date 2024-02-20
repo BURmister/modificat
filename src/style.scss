@@ -1,0 +1,333 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wdth,wght@0,62.5..100,100..900;1,62.5..100,100..900&display=swap');
+
+@font-face {
+   font-family: 'druk';
+   src: url('./assets/fonts/drukwidecyr-medium.otf') format('opentype');
+   font-weight: normal;
+   font-style: normal;
+}
+
+@font-face {
+   font-family: 'druk';
+   src: url('./assets/fonts/drukwidecyr-bold.otf') format('opentype');
+   font-weight: 700;
+   font-style: normal;
+}
+
+
+:root {
+   font-family: "Noto Sans";
+   color-scheme: light dark;
+
+   --black-bg: #172026;
+   --white-bg: #fff;
+   --grey-bg: #EFEFEF;
+
+   --black: #172026;
+   --blue: #4328EB;
+   --white: #fff;
+   --pink: #F0C6FB;
+   --pink-light: rgba(240, 198, 251, 0.5);
+   --blue-light: rgba(67, 40, 235, 0.2);
+
+   color: var(--black);
+   background-color: var(--white-bg);
+}
+
+*::selection {
+   background-color: var(--pink-light);
+}
+
+html, body {
+   margin: 0;
+   padding: 0;
+   scroll-behavior: smooth;
+}
+
+
+html,
+body {
+	height: 100%;
+}
+
+main {
+	flex: 1 0 auto;
+}
+
+header,
+footer {
+	flex: 0 0 auto;
+}
+
+#app {
+   height: 100%;
+}
+
+.page-wrapper {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+
+
+h1, h2, h3, h4, h5, p {
+   margin: unset; 
+}
+
+h1 {
+   position: absolute;
+   opacity: 0;
+   visibility: hidden;
+   user-select: none;
+   pointer-events: none;
+}
+
+.caption {
+   &-60 {
+      font-family: 'druk';
+      font-size: 60px;
+      font-weight: 500;
+      line-height: 120%;
+
+      @media (max-width: 1919px) {
+         font-size: 40px;
+      }
+
+      @media (max-width: 1439px) {
+         font-size: 32px;
+      }
+         
+      @media (max-width: 1279px) {
+         font-size: 24px;
+      }
+
+      @media (max-width: 719px) {
+         font-size: 20px;
+      }
+
+      @media (max-width: 479px) {
+         font-size: 16px;
+      }
+   }
+
+   &-32 {
+      font-family: 'druk';
+      font-size: 32px;
+      font-weight: 500;
+      line-height: 120%;
+
+      @media (max-width: 1279px) {
+         font-size: 24px;
+      }
+
+      @media (max-width: 719px) {
+         font-size: 20px;
+      }
+
+      @media (max-width: 479px) {
+         font-size: 16px;
+      }
+   }
+}
+
+.text {
+   &-20 {
+      font-size: 20px;
+      line-height: 140%;
+      color: var(--black);
+
+      @media (max-width: 1279px) {
+         font-size: 16px;
+      }
+
+      @media (max-width: 479px) {
+         font-size: 14px;
+      }
+   }
+
+   &-16nn {
+      font-size: 16px;
+      line-height: 140%;
+      color: var(--black);
+
+      @media (max-width: 1439px) {
+         font-size: 20px;
+      }
+
+      @media (max-width: 1279px) {
+         font-size: 16px;
+      }
+
+      @media (max-width: 479px) {
+         font-size: 14px;
+      }
+   }
+
+   &-blue {
+      color: var(--blue);
+   }
+}
+
+.highlight {
+   font-size: inherit;
+   font-weight: inherit;
+   font-family: inherit;
+   color: var(--blue);
+
+   &-gradient {
+      background-size: 300% 300%;
+      background-image: url('./assets/phone-gr.png');
+      background-position: 0% 0%;
+      background-repeat: no-repeat;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: highlightGradient 4s ease-in-out infinite;
+   }
+}
+
+img {
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+   user-select: none;
+   user-drag: none;
+   -webkit-user-drag: none;
+   user-select: none;
+   -moz-user-select: none;
+   -webkit-user-select: none;
+   -ms-user-select: none;
+}
+
+button {
+   margin: unset;
+   padding: unset;
+   background-color: unset;
+   border: unset;
+   cursor: pointer;
+}
+
+@media (prefers-color-scheme: light) {
+   :root {
+      /* color: #213547;
+      background-color: #ffffff; */
+   }
+}
+
+.content-wrapper {
+   margin: 0 auto;
+   width: 100%;
+   max-width: 1674px;
+
+   @media (max-width: 1919px) {
+      max-width: 1374px;
+   }
+
+   @media (max-width: 1439px) {
+      padding: 0 31px;
+   }
+
+   @media (max-width: 1279px) {
+      padding: 0 41px;
+   }
+
+   @media (max-width: 999px) {
+      padding: 0 27px;
+   }
+
+   @media (max-width: 719px) {
+      padding: 0 21px;
+   }
+
+   @media (max-width: 479px) {
+      padding: 0 5px;
+   }
+}
+
+._block {
+   &_rounded {
+      border-radius: 30px;
+
+      @media (max-width: 719px) {
+         border-radius: 20px;
+      }
+   }
+
+   &_grey {
+      background-color: var(--grey-bg);
+   }
+
+   &_pink {
+      background-color: var(--pink);
+
+      *::selection {
+         background-color: var(--blue-light);
+      }
+   }
+
+   &_blue {
+      background-color: var(--blue);
+   }
+}
+
+.phone {
+   font-family: 'druk';
+   font-size: 32px;
+   font-weight: 500;
+   line-height: 38px;
+   letter-spacing: 0em;
+
+   @media (max-width: 1279px) {
+      font-size: 24px;
+   }
+
+   @media (max-width: 999px) {
+      font-size: 20px;
+   }
+
+   @media (max-width: 719px) {
+      font-size: 16px;
+   }
+}
+
+@keyframes highlightGradient {
+   0% {
+      background-position: 0% 0%;
+   }
+
+   25% {
+      background-position: 40% 50%;
+   }
+
+   50% {
+      background-position: 100% 90%;
+   }
+
+   25% {
+      background-position: 50% 40%;
+   }
+
+   100% {
+      background-position: 0% 0%;
+   }
+}
+
+.land-section {
+   margin-bottom: 130px;
+
+   @media (max-width: 1919px) {
+      margin-bottom: 80px;
+   }
+
+   @media (max-width: 1279px) {
+      margin-bottom: 60px;
+   }
+
+   @media (max-width: 999px) {
+      margin-bottom: 50px;
+   }
+}
+
