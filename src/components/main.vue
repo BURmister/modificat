@@ -7,20 +7,20 @@ import BlueAkor from './ui/blueAkor.vue';
    <main>
       <h1>МОДИФИКАТ - ПРОДАЖА СТРОИТЕЛЬНЫХ СМЕСЕЙ</h1>
       <section class="content-wrapper land-section _block_main-wrapper">
-         <div class="_block_rounded _block_grey _block_main _block_main-1">
+         <div class="_block_rounded _block_grey _block_main _block_main-1 flex flex-col justify-between">
             <h2 class="caption-60">Продажа строительных смесей</h2>
             <p class="text-20 font-normal">Наши специалисты всегда готовы помочь вам выбрать наиболее подходящий продукт для вашего проекта.</p>
          </div>
-         <div class="_block_rounded _block_pink _block_main _block_main-4">
+         <div class="_block_rounded _block_pink _block_main _block_main-4 flex flex-col">
             <h2 class="caption-32">Мы есть на <span class="highlight">Ozon</span></h2>
             <p class="text-20 text-blue font-semibold">Покупайте продукцию с удовольствием и выгодой на маркетплейсах!</p>
-            <BlueAkor />
+            <BlueAkor href="/" />
          </div>
          <div class="_block_main-container">
-            <div class="_block_rounded _block_grey _block_main _block_main-2">
-               <h2 class="caption-">Консультация профессионалов</h2>
+            <div class="_block_rounded _block_grey _block_main _block_main-2 flex flex-col justify-between">
+               <h2 class="caption-20nn text-blue">Консультация профессионалов</h2>
                <p class="font-normal">По подбору строительных смесей в зависимости от типа выполняемых работ и условий эксплуатации.</p>
-               <BlueAkor href="https://github.com" />
+               <BlueAkor href="/" />
             </div>
             <img src="./../assets/stroitelsha.png" class="_block_rounded _block_main _block_main-3" />
          </div>
@@ -46,12 +46,18 @@ import BlueAkor from './ui/blueAkor.vue';
       position: relative;
       padding: 40px;
 
+      &-1,
+      &-2 {
+         gap: 20px;
+      }
+
       &-3 {
          padding: unset;
       }
 
       &-4 {
          grid-row: span 2;
+         gap: 27px;
       }
    }
 
@@ -86,8 +92,6 @@ import BlueAkor from './ui/blueAkor.vue';
       }
 
       ._block_main {
-         padding: 30px;
-
          &-1 {
             order: 1;
          }
@@ -100,6 +104,7 @@ import BlueAkor from './ui/blueAkor.vue';
 
          &-4 {
             order: 3;
+            gap: 20px;
          }
       }
    }
@@ -114,11 +119,18 @@ import BlueAkor from './ui/blueAkor.vue';
       }
 
       ._block_main {
-         padding: 30px;
          width: 100%;
 
          &-3 {
             display: none;
+         }
+      }
+   }
+
+   @media (max-width: 719px) {
+      ._block_main {
+         &-4 {
+            gap: 15px;
          }
       }
    }

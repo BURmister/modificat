@@ -3,7 +3,7 @@ const props = defineProps(['href']);
 </script>
 
 <template>
-   <a :href="href" class="blue-akor">
+   <button type="button" class="blue-akor">
       <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" fill="none">
          <circle cx="25" cy="25" r="25" fill="#4328EB" />
          <path
@@ -17,38 +17,60 @@ const props = defineProps(['href']);
             fill="white"
          />
       </svg>
-   </a>
+   </button>
 </template>
 
 <style scoped lang="scss">
-   .blue-akor {
-      position: absolute;
-      top: 30px;
-      right: 30px;
+.blue-akor {
+   position: absolute;
+   top: 40px;
+   right: 40px;
 
+   transition: all 0.2s ease-in-out;
+
+   svg {
+      border-radius: 50%;
+      overflow: hidden;
+
+      path {
+         transition: all 0.4s ease-in-out;
+      }
+
+      .hover-arrow {
+         transform: translate(-100%, 100%);
+      }
+   }
+
+   &:hover {
       svg {
-         border-radius: 50%;
-         overflow: hidden;
-
-         path {
-            transition: all 0.4s ease-in-out;
+         .visible-arrow {
+            transform: translate(100%, -100%);
          }
 
          .hover-arrow {
-            transform: translate(-100%, 100%);
-         }
-      }
-
-      &:hover {
-         svg {
-            .visible-arrow {
-               transform: translate(100%, -100%);
-            }
-
-            .hover-arrow {
-               transform: translate(0%, 0%);
-            }
+            transform: translate(0%, 0%);
          }
       }
    }
+
+   &:active {
+      opacity: 0.8;
+      transform: scale(0.8);
+   }
+
+   @media (max-width: 1919px) {
+      width: 50px;
+      height: 50px;
+   }
+
+   @media (max-width: 1439px) {
+      top: 30px;
+      right: 30px;
+   }
+
+   @media (max-width: 999px) {
+      top: 20px;
+      right: 20px;
+   }
+}
 </style>
