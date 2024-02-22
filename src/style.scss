@@ -93,6 +93,32 @@ h1 {
 }
 
 .caption {
+   &-100 {
+      margin-bottom: 60px;
+      font-family: 'druk';
+      font-size: 100px;
+      font-weight: 500;
+      line-height: 110%;
+
+      @media (max-width: 1919px) {
+         margin-bottom: 40px;
+         font-size: 60px;
+      }
+
+      @media (max-width: 1279px) {
+         margin-bottom: 30px;
+         font-size: 32px;
+      }
+
+      @media (max-width: 999px) {
+         margin-bottom: 20px;
+      }
+
+      @media (max-width: 479px) {
+         font-size: 28px;
+      }
+   }
+
    &-60 {
       font-family: 'druk';
       font-size: 60px;
@@ -305,6 +331,19 @@ button {
       }
    }
 
+   &_pink-gr {
+      background: linear-gradient(39.8deg, #F0C6FB 2.83%, #FDCBF1 90.39%);
+      background-size: 200% 200%;
+      background-image: url('./assets/pink-gr.png');
+      background-position: 0% 0%;
+      background-repeat: no-repeat;
+      animation: highlightGradient 4s ease-in-out infinite;
+
+      *::selection {
+         background-color: var(--blue-light);
+      }
+   }
+
    &_blue {
       background-color: var(--blue);
    }
@@ -315,7 +354,12 @@ button {
    font-size: 32px;
    font-weight: 500;
    line-height: 38px;
-   letter-spacing: 0em;
+
+   transition: all 0.2s ease-in-out;
+
+   &:active {
+      opacity: 0.6;
+   }
 
    @media (max-width: 1279px) {
       font-size: 24px;

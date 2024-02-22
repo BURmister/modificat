@@ -55,7 +55,7 @@ const props = defineProps(['href']);
 
    &:active {
       opacity: 0.8;
-      transform: scale(0.8);
+      transform: scale(0.9);
    }
 
    @media (max-width: 1919px) {
