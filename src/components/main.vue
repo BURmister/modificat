@@ -1,9 +1,30 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 import BlueAkor from './ui/blueAkor.vue';
 
 import { Vue3Lottie } from 'vue3-lottie'
 import AnimA from '../assets/anim/anim-1.json';
+import {useGsap} from '/src/composables/useGsap.js'
+
+const gsap = useGsap( );
+
+const landSection = ref(null);
+const landSection2 = ref(null);
+
+onMounted(( ) => {
+   gsap.from(landSection2.value, {
+      scrollTrigger : {
+         trigger: landSection.value,
+         start: `80% 30%`, 
+         markers : true,
+         end: `85% 20%`,
+         scrub : 1, 
+      },
+      x : "-200%", 
+   }
+      
+   )
+})
 
 </script>
 
@@ -12,7 +33,32 @@ import AnimA from '../assets/anim/anim-1.json';
       <h1>МОДИФИКАТ - ПРОДАЖА СТРОИТЕЛЬНЫХ СМЕСЕЙ</h1>
 
       <!-- Первый блок -->
-      <section class="land-section _block_main-wrapper">
+      <section ref="landSection" class="land-section _block_main-wrapper">
+         <div class="_block_rounded _block_grey _block_main _block_main-1 flex flex-col justify-between">
+            <h2 class="caption-60">Продажа строительных смесей</h2>
+            <p class="text-20 font-normal">Наши специалисты всегда готовы помочь вам выбрать наиболее подходящий продукт для вашего проекта.</p>
+         </div>
+         <div class="_block_rounded _block_pink-gr _block_main _block_main-4 flex">
+            <div class="_block_content flex">
+               <h2 class="caption-32">Мы есть на <span class="highlight">Ozon</span></h2>
+               <p class="text-20 text-blue font-semibold">Покупайте продукцию с удовольствием и выгодой на маркетплейсах!</p>
+               <BlueAkor href="/" />
+            </div>
+            <div class="json-animation">
+               <img class="json-animation_img" src="../assets/ozon-react.png">
+               <Vue3Lottie :animationData="AnimA" />
+            </div>
+         </div>
+         <div class="_block_main-container">
+            <div class="_block_rounded _block_grey _block_main _block_main-2 flex flex-col justify-between">
+               <h2 class="caption-20nn text-blue">Консультация профессионалов</h2>
+               <p class="font-normal">По подбору строительных смесей в зависимости от типа выполняемых работ и условий эксплуатации.</p>
+               <BlueAkor href="/" />
+            </div>
+            <img src="./../assets/stroitelsha.png" class="_block_rounded _block_main _block_main-3" />
+         </div>
+      </section>
+      <section ref="landSection2" class="land-section _block_main-wrapper">
          <div class="_block_rounded _block_grey _block_main _block_main-1 flex flex-col justify-between">
             <h2 class="caption-60">Продажа строительных смесей</h2>
             <p class="text-20 font-normal">Наши специалисты всегда готовы помочь вам выбрать наиболее подходящий продукт для вашего проекта.</p>
