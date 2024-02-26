@@ -13,54 +13,56 @@ import aButtonLarge from './ui/aButtonLarge.vue';
                   <a href="mailto:modifikat@inbox.ru" class="text-46 text-white footer-link block">modifikat@inbox.ru</a>
                </div>
                <div class="footer-info_requisites">
-                  <ul class="requisites-1">
-                     <li>
-                        <h4 class="text-16 text-white font-bold">ИНН:</h4>
-                        <p class="text-16 text-white">5034066048</p>
-                     </li>
-                     <li>
-                        <h4 class="text-16 text-white font-bold">Банк:</h4>
-                        <p class="text-16 text-white">ПАО СБЕРБАНК</p>
-                     </li>
-                     <li>
-                        <h4 class="text-16 text-white font-bold">КПП:</h4>
-                        <p class="text-16 text-white">503401001</p>
-                     </li>
-                     <li>
-                        <h4 class="text-16 text-white font-bold">Корсчет банка №:</h4>
-                        <p class="text-16 text-white">30101810400000000225</p>
-                     </li>
-                     <li>
-                        <h4 class="text-16 text-white font-bold">ОГРН:</h4>
-                        <p class="text-16 text-white">1235000109244</p>
-                     </li>
-                     <li>
-                        <h4 class="text-16 text-white font-bold">БИК:</h4>
-                        <p class="text-16 text-white">044525225</p>
-                     </li>
-                     <li>
-                        <h4 class="text-16 text-white font-bold">ОКПО:</h4>
-                        <p class="text-16 text-white">49728606</p>
-                     </li>
-                     <li>
-                        <h4 class="text-16 text-white font-bold">Генеральный директор:</h4>
-                        <p class="text-16 text-white">Шишов Юрий Викторович</p>
-                     </li>
-                     <li>
-                        <h4 class="text-16 text-white font-bold">Расчетный счет №:</h4>
-                        <p class="text-16 text-white">40702810440000018316</p>
-                     </li>
-                     <li>
-                        <h4 class="text-16 text-white font-bold">Телефон организации:</h4>
-                        <p class="text-16 text-white">+7 (917) 517-87-13</p>
-                     </li>
-                  </ul>
-                  <ul class="requisites-2">
+                  <div class="requisites-wrap">
+                     <ul class="requisites-1">
+                        <li>
+                           <h4 class="text-16 text-white font-bold">ИНН:</h4>
+                           <p class="text-16 text-white">5034066048</p>
+                        </li>
+                        <li>
+                           <h4 class="text-16 text-white font-bold">КПП:</h4>
+                           <p class="text-16 text-white">503401001</p>
+                        </li>
+                        <li>
+                           <h4 class="text-16 text-white font-bold">ОГРН:</h4>
+                           <p class="text-16 text-white">1235000109244</p>
+                        </li>
+                        <li>
+                           <h4 class="text-16 text-white font-bold">ОКПО:</h4>
+                           <p class="text-16 text-white">49728606</p>
+                        </li>
+                        <li>
+                           <h4 class="text-16 text-white font-bold">Расчетный счет №:</h4>
+                           <p class="text-16 text-white">40702810440000018316</p>
+                        </li>
+                     </ul>
+                     <ul class="requisites-2">
+                        <li>
+                           <h4 class="text-16 text-white font-bold">Банк:</h4>
+                           <p class="text-16 text-white">ПАО СБЕРБАНК</p>
+                        </li>
+                        <li>
+                           <h4 class="text-16 text-white font-bold">Корсчет банка №:</h4>
+                           <p class="text-16 text-white">30101810400000000225</p>
+                        </li>
+                        <li>
+                           <h4 class="text-16 text-white font-bold">БИК:</h4>
+                           <p class="text-16 text-white">044525225</p>
+                        </li>
+                        <li>
+                           <h4 class="text-16 text-white font-bold">Генеральный директор:</h4>
+                           <p class="text-16 text-white">Шишов Юрий Викторович</p>
+                        </li>
+                        <li>
+                           <h4 class="text-16 text-white font-bold">Телефон организации:</h4>
+                           <p class="text-16 text-white">+7 (917) 517-87-13</p>
+                        </li>
+                     </ul>
+                  </div>
+                  <ul class="requisites-3">
                      <li>
                         <h4 class="text-16 text-white font-bold">ОКВЭД:</h4>
-                        <p class="text-16 text-white">
-                           46.73 Торговля оптовая лесоматериалами, строительными материалами и санитарно-техническим оборудованием
-                        </p>
+                        <p class="text-16 text-white">46.73 Торговля оптовая лесоматериалами, строительными материалами и санитарно-техническим оборудованием</p>
                      </li>
                      <li>
                         <h4 class="text-16 text-white font-bold">Юридический и почтовый адрес организации:</h4>
@@ -71,38 +73,96 @@ import aButtonLarge from './ui/aButtonLarge.vue';
             </div>
             <div class="footer-map">
                <div class="footer-map-wrap">
-                  <iframe
-                     src="https://yandex.ru/map-widget/v1/org/modifikat/74428691836/?ll=38.964048%2C55.824086&z=16"
-                     width="100%"
-                     height="100%"
-                     frameborder="1"
-                     allowfullscreen="true"
-                     style="position: relative"
-                  ></iframe>
+                  <iframe src="https://yandex.ru/map-widget/v1/org/modifikat/74428691836/?ll=38.964048%2C55.824086&z=16" width="100%" height="100%" frameborder="1" allowfullscreen="true" style="position: relative"></iframe>
                </div>
-               <a class="text-46 text-white footer-link" href="https://yandex.ru/maps/org/modifikat/74428691836/?utm_medium=mapframe&utm_source=maps">
-                  Московская область, г. Орехово-Зуево, Малодубенское шоссе д. 3
-               </a>
+               <a class="text-46nn text-white footer-link" href="https://yandex.ru/maps/org/modifikat/74428691836/?utm_medium=mapframe&utm_source=maps"> Московская область, г. Орехово-Зуево, Малодубенское шоссе д. 3 </a>
             </div>
          </div>
          <div class="footer-block">
             <aButtonLarge title="Получить консультацию" pinkStyle="true" />
          </div>
-         <div class="footer-block">
-            <p class="text-16 text-white">ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ «МОДИФИКАТ» © 2024</p>
-            <a class="text-16 text-white footer-link" href="/politics">Политика конфиденциальности</a>
-            <div>
-               <p class="text-16 text-white">Сайт разработан:</p>
+         <div class="footer-block footer-copy_wrap">
+            <div class="footer-copy">
+               <p class="text-16 text-white">ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ «МОДИФИКАТ» © 2024</p>
+               <a class="text-16 text-white footer-link" href="/politics">Политика конфиденциальности</a>
+               <div class="made-by-BuroBurakova">
+                  <p class="text-16 text-white">Сайт разработан:</p>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="161" height="31" viewBox="0 0 161 31" fill="none">
+                     <path
+                        d="M40.8577 11.0304H36.343V13.4085H37.8482C39.1225 13.4085 40.1378 13.7662 40.8926 14.4824C41.6481 15.1979 42.0259 16.1551 42.0259 17.3525C42.0259 18.5499 41.6566 19.5097 40.9189 20.2486C40.1803 20.9875 39.2031 21.3679 37.9866 21.3906H33.791V8.93457H40.8577V11.0304ZM36.343 15.4968V19.304H37.883C38.3788 19.304 38.7693 19.1201 39.0554 18.7523C39.3407 18.3845 39.4833 17.9126 39.4833 17.3366C39.4833 16.795 39.3432 16.3541 39.0639 16.0149C38.7837 15.6756 38.3966 15.5035 37.9008 15.4976H36.3438L36.343 15.4968Z"
+                        fill="white"
+                     />
+                     <path
+                        d="M56.1585 16.2831C56.1585 17.9541 55.7595 19.2515 54.9606 20.176C54.1617 21.0996 53.053 21.5623 51.6344 21.5623C50.2158 21.5623 49.1393 21.1173 48.3345 20.228C47.5297 19.3379 47.1103 18.0776 47.0763 16.4469H46.0644V21.3918H43.5217V8.93413H46.0644V14.4266H47.0763V14.1957C47.0763 13.0721 47.2563 12.1015 47.6171 11.2828C47.9771 10.4641 48.5009 9.84016 49.1868 9.4094C49.8728 8.97863 50.6835 8.76367 51.6174 8.76367C53.019 8.76367 54.1227 9.23558 54.93 10.1794C55.7374 11.1232 56.1466 12.4483 56.1585 14.1537V16.284V16.2831ZM53.6065 14.1957C53.6065 13.0721 53.4452 12.2366 53.1217 11.6892C52.7983 11.1417 52.2974 10.8679 51.6165 10.8679C50.9357 10.8679 50.4433 11.1316 50.1198 11.6589C49.7972 12.1863 49.63 12.989 49.6181 14.0672V16.2831C49.6181 17.3722 49.7828 18.175 50.1113 18.6914C50.4399 19.2078 50.9476 19.4656 51.6335 19.4656C52.3195 19.4656 52.7898 19.2137 53.1124 18.7082C53.435 18.2035 53.5997 17.4209 53.6057 16.3595V14.1948L53.6065 14.1957Z"
+                        fill="white"
+                     />
+                     <path
+                        d="M60.4755 17.0108V21.3914H57.9329V8.93457H62.2235C63.4689 8.93457 64.4622 9.31663 65.2033 10.0808C65.9445 10.8449 66.3146 11.8374 66.3146 13.0583C66.3146 14.2792 65.9487 15.2432 65.2161 15.9502C64.4834 16.6572 63.4689 17.0108 62.1717 17.0108H60.4763H60.4755ZM60.4755 14.9149H62.2226C62.7074 14.9149 63.0818 14.7579 63.3475 14.4446C63.6124 14.1314 63.7457 13.6746 63.7457 13.0759C63.7457 12.4772 63.6098 11.9592 63.339 11.5914C63.0682 11.2236 62.7049 11.0372 62.249 11.0313H60.4755V14.9157V14.9149Z"
+                        fill="white"
+                     />
+                     <path
+                        d="M76.8748 16.2831C76.8748 17.9541 76.4757 19.2515 75.6769 20.176C74.878 21.0996 73.7693 21.5623 72.3506 21.5623C70.932 21.5623 69.8275 21.1047 69.0202 20.1894C68.2128 19.2741 67.8036 17.9919 67.7917 16.3436V14.2133C67.7917 12.502 68.1925 11.166 68.9939 10.2054C69.7953 9.24482 70.9083 8.76367 72.3328 8.76367C73.7574 8.76367 74.8381 9.23558 75.6455 10.1794C76.4528 11.1232 76.862 12.4483 76.8739 14.1537V16.284L76.8748 16.2831ZM74.3228 14.1957C74.3228 13.0721 74.1615 12.2366 73.838 11.6892C73.5154 11.1417 73.0137 10.8679 72.3328 10.8679C71.652 10.8679 71.1596 11.1316 70.8361 11.6589C70.5127 12.1863 70.3463 12.989 70.3344 14.0672V16.2831C70.3344 17.3722 70.4991 18.175 70.8276 18.6914C71.1562 19.2078 71.6638 19.4656 72.3498 19.4656C73.0358 19.4656 73.5061 19.2137 73.8287 18.7082C74.1513 18.2035 74.316 17.4209 74.3219 16.3595V14.1948L74.3228 14.1957Z"
+                        fill="white"
+                     />
+                     <path
+                        d="M89.841 11.0304H85.3254V13.4085H86.8306C88.1049 13.4085 89.1194 13.7662 89.875 14.4824C90.6305 15.1979 91.0083 16.1551 91.0083 17.3525C91.0083 18.5499 90.639 19.5097 89.9013 20.2486C89.1627 20.9875 88.1856 21.3679 86.969 21.3906H82.7734V8.93457H89.8402V11.0304H89.841ZM85.3254 15.4968V19.304H86.8654C87.3612 19.304 87.7517 19.1201 88.037 18.7523C88.3222 18.3845 88.4649 17.9126 88.4649 17.3366C88.4649 16.795 88.3248 16.3541 88.0455 16.0149C87.7653 15.6756 87.3782 15.5035 86.8824 15.4976H85.3254V15.4968Z"
+                        fill="white"
+                     />
+                     <path
+                        d="M96.2769 14.4698L97.9723 8.93457H100.706L97.2549 18.9446C96.8627 19.9371 96.4407 20.6189 95.9874 20.9892C95.5349 21.3604 94.9916 21.5535 94.3565 21.5711H94.0798L93.4745 21.5367L93.4312 19.4492C93.4889 19.4719 93.6765 19.4837 93.9932 19.4837C94.3099 19.4837 94.5595 19.4123 94.7241 19.2695C94.8888 19.1268 95.0315 18.8077 95.152 18.3114L95.2734 17.858L91.6755 8.93457H94.3998L96.2769 14.4698Z"
+                        fill="white"
+                     />
+                     <path
+                        d="M104.598 17.0108V21.3914H102.055V8.93457H106.346C107.591 8.93457 108.584 9.31663 109.325 10.0808C110.067 10.8449 110.437 11.8374 110.437 13.0583C110.437 14.2792 110.071 15.2432 109.338 15.9502C108.605 16.6572 107.591 17.0108 106.294 17.0108H104.598H104.598ZM104.598 14.9149H106.345C106.829 14.9149 107.204 14.7579 107.47 14.4446C107.734 14.1314 107.868 13.6746 107.868 13.0759C107.868 12.4772 107.732 11.9592 107.461 11.5914C107.19 11.2236 106.827 11.0372 106.371 11.0313H104.598V14.9157V14.9149Z"
+                        fill="white"
+                     />
+                     <path d="M116.603 18.8421H113.135L112.46 21.3914H109.769L113.705 8.93457H116.032L119.993 21.3914H117.277L116.603 18.8421H116.603ZM113.688 16.7462H116.041L114.864 12.3059L113.687 16.7462H113.688Z" fill="white" />
+                     <path d="M124.838 16.3096H123.731V21.3914H121.189V8.93457H123.731V13.914H124.588L126.777 8.93457H129.874L126.794 14.7352L130.22 21.3914H127.193L124.84 16.3096H124.838Z" fill="white" />
+                     <path
+                        d="M139.759 16.2831C139.759 17.9541 139.36 19.2515 138.561 20.176C137.762 21.0996 136.653 21.5623 135.235 21.5623C133.816 21.5623 132.712 21.1047 131.904 20.1894C131.097 19.2741 130.688 17.9919 130.676 16.3436V14.2133C130.676 12.502 131.076 11.166 131.878 10.2054C132.679 9.24482 133.792 8.76367 135.217 8.76367C136.641 8.76367 137.722 9.23558 138.529 10.1794C139.337 11.1232 139.746 12.4483 139.758 14.1537V16.284L139.759 16.2831ZM137.207 14.1957C137.207 13.0721 137.046 12.2366 136.722 11.6892C136.399 11.1417 135.898 10.8679 135.217 10.8679C134.536 10.8679 134.044 11.1316 133.72 11.6589C133.398 12.1863 133.23 12.989 133.218 14.0672V16.2831C133.218 17.3722 133.383 18.175 133.712 18.6914C134.04 19.2078 134.548 19.4656 135.234 19.4656C135.92 19.4656 136.39 19.2137 136.713 18.7082C137.035 18.2035 137.2 17.4209 137.206 16.3595V14.1948L137.207 14.1957Z"
+                        fill="white"
+                     />
+                     <path
+                        d="M141.584 21.3914V8.93457H145.477C146.792 8.93457 147.79 9.22426 148.473 9.80281C149.157 10.3814 149.498 11.2303 149.498 12.3479C149.498 12.9811 149.356 13.526 149.074 13.982C148.792 14.4388 148.405 14.7721 147.916 14.9829C148.481 15.1424 148.916 15.4632 149.221 15.9452C149.527 16.4272 149.68 17.0217 149.68 17.7287C149.68 18.9379 149.344 19.8506 148.672 20.4661C148.001 21.0824 147.027 21.3898 145.752 21.3898H141.583L141.584 21.3914ZM144.127 14.1449H145.45C146.448 14.1449 146.947 13.6343 146.947 12.6133C146.947 12.049 146.832 11.6434 146.601 11.3982C146.37 11.153 145.995 11.0304 145.476 11.0304H144.127V14.1449ZM144.127 15.9754V19.3031H145.753C146.209 19.3031 146.555 19.1637 146.792 18.8841C147.028 18.6045 147.146 18.2082 147.146 17.6951C147.146 16.5775 146.737 16.004 145.918 15.9754H144.128H144.127Z"
+                        fill="white"
+                     />
+                     <path d="M157.534 18.8421H154.065L153.391 21.3914H150.7L154.636 8.93457H156.963L160.924 21.3914H158.208L157.533 18.8421H157.534ZM154.619 16.7462H156.971L155.795 12.3059L154.618 16.7462H154.619Z" fill="white" />
+                     <path
+                        d="M6.20052 5.62816C6.20052 5.62816 7.95616 6.99686 8.5776 10.4354C9.19904 13.874 3.62732 17.9171 3.62732 17.9171C3.62732 17.9171 5.16988 15.8204 4.01954 13.7153C2.8692 11.6101 0.611824 7.8777 0.684834 6.56525C0.757845 5.25281 1.82414 2.93945 1.82414 2.93945L6.27353 3.23167L6.19967 5.62816H6.20052Z"
+                        fill="url(#paint0_linear_258_1529)"
+                     />
+                     <path d="M21.9165 14.7764C21.9165 14.7764 13.8293 22.3907 5.86015 24.3279C-2.10902 26.2651 8.188 30.0177 8.188 30.0177C8.188 30.0177 18.9834 26.3742 24.398 20.5148C29.8127 14.6555 21.9165 14.7772 21.9165 14.7772V14.7764Z" fill="url(#paint1_linear_258_1529)" />
+                     <path
+                        d="M0.993073 7.95804C0.993073 7.95804 0.0430887 3.89475 4.16308 5.15682C8.28223 6.41888 21.5387 12.4403 23.7766 18.6549C23.7766 18.6549 24.2265 20.3385 23.4675 21.4511C23.4675 21.4511 29.6081 17.6506 27.5273 13.4648C25.4473 9.27888 11.1322 0.188342 7.14717 0.00948716C3.16216 -0.170208 -1.73887 2.19269 0.993073 7.95804Z"
+                        fill="url(#paint2_linear_258_1529)"
+                     />
+                     <path
+                        d="M7.92318 8.23535C7.92318 8.23535 11.1322 13.423 11.2248 14.3131C11.3173 15.2031 11.2952 16.5525 9.22208 19.787C7.14893 23.0207 3.16986 27.6835 7.78564 29.6283C7.78564 29.6283 8.70761 29.9163 9.57864 29.5073C9.57864 29.5073 5.54185 31.5234 2.26826 29.221C-1.00532 26.9186 -0.428028 23.9939 2.04838 19.9869C4.5248 15.979 8.92664 9.79047 7.92233 8.23535H7.92318Z"
+                        fill="url(#paint3_linear_258_1529)"
+                     />
+                     <defs>
+                        <linearGradient id="paint0_linear_258_1529" x1="0.297325" y1="10.0725" x2="8.64851" y2="10.9942" gradientUnits="userSpaceOnUse">
+                           <stop stop-color="#4395D1" />
+                           <stop offset="1" stop-color="#2B2E6F" />
+                        </linearGradient>
+                        <linearGradient id="paint1_linear_258_1529" x1="3.40105" y1="21.112" x2="25.5961" y2="23.5616" gradientUnits="userSpaceOnUse">
+                           <stop stop-color="#4395D1" />
+                           <stop offset="1" stop-color="#2B2E6F" />
+                        </linearGradient>
+                        <linearGradient id="paint2_linear_258_1529" x1="-0.285027" y1="9.043" x2="28.3214" y2="12.2003" gradientUnits="userSpaceOnUse">
+                           <stop stop-color="#AA173B" />
+                           <stop offset="0.58" stop-color="#E42918" />
+                           <stop offset="1" stop-color="#E42918" />
+                        </linearGradient>
+                        <linearGradient id="paint3_linear_258_1529" x1="0.7191" y1="18.6324" x2="10.7358" y2="19.7379" gradientUnits="userSpaceOnUse">
+                           <stop stop-color="#F5E2E5" />
+                           <stop offset="1" stop-color="#D8E3F4" />
+                        </linearGradient>
+                     </defs>
+                  </svg>
+               </div>
             </div>
-            <svg
-               class="logo-vector"
-               xmlns="http://www.w3.org/2000/svg"
-               width="1889"
-               height="267"
-               viewBox="0 0 1889 267"
-               fill="none"
-               style="&#10;    width: 100%;&#10;"
-            >
+            <svg class="logo-vector" xmlns="http://www.w3.org/2000/svg" width="1889" height="267" viewBox="0 0 1889 267" fill="none">
                <path
                   d="M1801.63 225C1799.63 225 1797.93 224.4 1796.53 223.2C1795.33 221.8 1794.73 220.1 1794.73 218.1V41.7H1737.13C1735.13 41.7 1733.43 41.1 1732.03 39.9C1730.83 38.5 1730.23 36.8 1730.23 34.8V22.2C1730.23 20 1730.83 18.3 1732.03 17.1C1733.43 15.7 1735.13 15 1737.13 15H1881.73C1883.93 15 1885.63 15.7 1886.83 17.1C1888.23 18.3 1888.93 20 1888.93 22.2V34.8C1888.93 36.8 1888.23 38.5 1886.83 39.9C1885.63 41.1 1883.93 41.7 1881.73 41.7H1824.43V218.1C1824.43 220.1 1823.73 221.8 1822.33 223.2C1821.13 224.4 1819.43 225 1817.23 225H1801.63Z"
                   fill="white"
@@ -171,6 +231,30 @@ footer {
                flex-direction: column;
                gap: 20px;
             }
+
+            &_requisites {
+               display: flex;
+               flex-direction: column;
+               gap: 30px;
+
+               .requisites-wrap {
+                  display: flex;
+                  justify-content: space-between;
+
+                  .requisites-1,
+                  .requisites-2 {
+                     display: flex;
+                     flex-direction: column;
+                     gap: 10px;
+                  }
+               }
+
+               .requisites-3 {
+                  display: flex;
+                  flex-direction: column;
+                  gap: 20px;
+               }
+            }
          }
 
          .footer-map {
@@ -182,6 +266,26 @@ footer {
                flex: 1;
                overflow: hidden;
                border-radius: 30px;
+            }
+         }
+      }
+
+      .footer-copy_wrap {
+         display: flex;
+         flex-direction: column;
+         gap: 30px;
+         .footer-copy {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            column-gap: 50px;
+            row-gap: 10px;
+
+            .made-by-BuroBurakova {
+               display: flex;
+               align-items: center;
+               gap: 20px;
             }
          }
       }
@@ -198,17 +302,81 @@ footer {
 
       .content-wrapper {
          gap: 50px;
+         
+         .footer-info_wrap {
+            grid-template-columns: repeat(2, 1fr);
+         }
+      }
+   }
+
+   @media (max-width: 1439px) {
+      .content-wrapper {
+         .footer-copy_wrap {
+            .text-16 {
+               font-size: 14px;
+            }
+         }
       }
    }
 
    @media (max-width: 1279px) {
       .content-wrapper {
          gap: 30px;
+
+         .footer-info_wrap {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+
+            .footer-info {
+               .footer-info_requisites {
+                  flex-direction: row;
+                  align-items: center;
+                  gap: 70px;
+
+                  .requisites-wrap {
+                     gap: 70px;
+                  }
+
+                  .requisites-3 {
+                     max-width: 395px;
+                  }
+               }
+            }
+
+            .footer-map {
+               .footer-map-wrap {
+                  > iframe {
+                     height: 400px;
+                  }
+               }
+            }
+         }
       }
    }
 
    @media (max-width: 999px) {
       border-radius: 30px 30px 0 0;
+
+      .content-wrapper {
+         .footer-info_wrap {
+            .footer-info {
+               .footer-info_requisites {
+                  flex-direction: column;
+                  align-items: flex-start;
+                  gap: 30px;
+               }
+            }
+         }
+
+         .footer-copy_wrap {
+            .footer-copy {
+               flex-direction: column;
+               justify-content: flex-start;
+               align-items: flex-start;
+            }
+         }
+      }
    }
 
    @media (max-width: 719px) {
@@ -217,12 +385,68 @@ footer {
 
       .content-wrapper {
          gap: 20px;
+
+         .footer-info_wrap {
+            gap: 20px;
+
+            .footer-info {
+               gap: 20px;
+
+               &_contacts {
+                  gap: 10px;
+               }
+
+               .footer-info_requisites {
+                  width: 100%;
+                  gap: 20px;
+
+                  .requisites-wrap {
+                     gap: unset;
+                     justify-content: space-between;
+                  }
+               }
+            }
+
+            .footer-map {
+               .footer-map-wrap {
+                  border-radius: 20px;
+
+                  > iframe {
+                     height: 220px;
+                  }
+               }
+            }
+         }
       }
    }
 
    @media (max-width: 479px) {
       padding-top: 10px;
       padding-bottom: 10px;
+
+      .content-wrapper {
+         .footer-info_wrap {
+            .footer-info {
+               .footer-info_requisites {
+                  .requisites-wrap {
+                     flex-direction: column;
+                     justify-content: flex-start;
+                     gap: 20px;
+                  }
+               }
+            }
+         }
+
+         .footer-copy_wrap {
+            .footer-copy {
+               .made-by-BuroBurakova {
+                  flex-direction: column;
+                  align-items: flex-start;
+                  gap: 6px;
+               }
+            }
+         }
+      }
    }
 }
 </style>
