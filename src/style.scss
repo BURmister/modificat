@@ -26,6 +26,7 @@
    --black-bg: #172026;
    --white-bg: #fff;
    --grey-bg: #EFEFEF;
+   --blue-opacity: #4328EB0D;
 
    --black: #172026;
    --blue: #4328EB;
@@ -195,13 +196,51 @@ h1 {
          font-size: 16px;
       }
    }
+
+   &-20 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 140%;
+   }
 }
 
 .text {
+   &-46 {
+      font-size: 46px;
+      font-weight: 400;
+      line-height: 120%;
+
+      @media (max-width: 719px) {
+         font-size: 36px;
+      }
+
+      @media (max-width: 479px) {
+         font-size: 26px;
+      }
+   }
+
+   &-46nn {
+      font-size: 46px;
+      font-weight: 400;
+      line-height: 120%;
+
+      @media (max-width: 1919px) {
+         font-size: 28px;
+      }
+
+      @media (max-width: 719px) {
+         font-size: 20px;
+      }
+
+      @media (max-width: 479px) {
+         font-size: 14px;
+      }
+   }
+
    &-20 {
       font-size: 20px;
       line-height: 140%;
-      color: var(--black);
+      // color: var(--black);
 
       @media (max-width: 1279px) {
          font-size: 16px;
@@ -215,7 +254,7 @@ h1 {
    &-16nn {
       font-size: 16px;
       line-height: 140%;
-      color: var(--black);
+      // color: var(--black);
 
       @media (max-width: 1439px) {
          font-size: 20px;
@@ -227,6 +266,20 @@ h1 {
 
       @media (max-width: 479px) {
          font-size: 14px;
+      }
+   }
+
+   &-16 {
+      font-size: 16px;
+      line-height: 140%;
+      // color: var(--black);
+
+      @media (max-width: 719px) {
+         font-size: 14px;
+      }
+
+      @media (max-width: 479px) {
+         font-size: 12px;
       }
    }
 
@@ -332,12 +385,12 @@ button {
    }
 
    &_pink-gr {
-      background: linear-gradient(39.8deg, #F0C6FB 2.83%, #FDCBF1 90.39%);
+      // background: linear-gradient(39.8deg, #F0C6FB 2.83%, #FDCBF1 90.39%);
       background-size: 200% 200%;
       background-image: url('./assets/pink-gr.png');
-      background-position: 0% 0%;
+      background-position: 0% 100%;
       background-repeat: no-repeat;
-      animation: highlightGradient 4s ease-in-out infinite;
+      animation: highlightGradientPink 4s ease-in-out infinite;
 
       *::selection {
          background-color: var(--blue-light);
@@ -387,12 +440,38 @@ button {
       background-position: 100% 90%;
    }
 
-   25% {
+   75% {
       background-position: 50% 40%;
    }
 
    100% {
       background-position: 0% 0%;
+   }
+}
+
+@keyframes highlightGradientPink {
+   0% {
+      background-position: 0% 100%;
+   }
+
+   25% {
+      background-position: 25% 10%;
+   }
+
+   45% {
+      background-position: 60% 20%;
+   }
+
+   50% {
+      background-position: 100% 45%;
+   }
+
+   75% {
+      background-position: 25% 40%;
+   }
+
+   100% {
+      background-position: 0% 100%;
    }
 }
 
@@ -409,5 +488,258 @@ button {
 
    @media (max-width: 999px) {
       margin-bottom: 50px;
+   }
+}
+
+.rounded-title {
+   padding: 13px 30px;
+
+   display: block;
+   width: fit-content;
+
+   border-radius: 100px;
+   background-color: var(--white);
+
+   @media (max-width: 719px) {
+      padding: 6px 30px;
+   }
+
+   @media (max-width: 479px) {
+      padding: 6px 10px;
+   }
+}
+
+.a-button {
+   position: absolute;
+   top: 40px;
+   right: 40px;
+
+   transition: all 0.2s ease-in-out;
+
+   svg {
+      border-radius: 50%;
+      overflow: hidden;
+
+      path {
+         transition: all 0.4s ease-in-out;
+      }
+
+      .hover-arrow {
+         transform: translate(-100%, 100%);
+      }
+   }
+
+   &:hover {
+      svg {
+         .visible-arrow {
+            transform: translate(100%, -100%);
+         }
+
+         .hover-arrow {
+            transform: translate(0%, 0%);
+         }
+      }
+   }
+
+   &:active {
+      opacity: 0.8;
+      transform: scale(0.9);
+   }
+
+   &_white {
+      svg {
+         circle {
+            fill: var(--white);
+         }
+
+         path {
+            fill: var(--black);
+         }
+      }
+   }
+
+   &_bottom {
+      top: unset;
+      bottom: 40px;
+   }
+
+   &_large {
+      position: relative;
+      width: 100%;
+      height: 130px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-family: 'druk';
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 100%;
+      color: var(--white);
+
+      // background-color: var(--blue);
+      border-radius: 20px;
+      border: 1px solid transparent;
+
+      transition: all 0.2s ease;
+      overflow: hidden;
+      z-index: 1;
+
+      p {
+         font-family: inherit;
+         font-size: inherit;
+         font-weight: inherit;
+         line-height: inherit;
+         color: inherit;
+         transition: all 0.2s ease-out;
+      }
+
+      &:before {
+         position: absolute;
+         content: '';
+         top: -50%;
+         left: -50%;
+
+         width: 200%;
+         height: 200%;
+         background-image: url('./assets/phone-gr.png');
+         background-repeat: no-repeat;
+         background-size: 200% 200%;
+         background-position: 0 0;
+         // opacity: 0.1;
+
+         transition: all 0.2s ease-out;
+         z-index: -1;
+
+         animation: highlightBackgroundNonRotate 8s ease-in-out infinite;
+         transition: all 0.2s ease-out;
+      }
+
+      &:hover {
+         letter-spacing: 5px;
+      }
+
+      &:active {
+         opacity: 0.8;
+
+         p {
+            transform: scale(0.9);
+         }
+      }
+
+      &_pink {
+         color: var(--blue);
+         background-color: var(--pink);
+
+         &:before {
+            background-image: url('./assets/pink-gr.png');
+            animation: highlightGradientPink 8s ease-in-out infinite;
+         }
+      }
+   }
+
+   @media (max-width: 1919px) {
+      svg {
+         width: 50px;
+         height: 50px;
+      }
+
+      &_large {
+         height: 120px;
+         font-size: 32px;
+      }
+   }
+
+   @media (max-width: 1439px) {
+      top: 30px;
+      right: 30px;
+
+      &_bottom {
+         top: unset;
+         bottom: 30px;
+      }
+   }
+
+   @media (max-width: 1279px) {
+      &_large {
+         height: 80px;
+         font-size: 24px;
+      }
+   }
+
+   @media (max-width: 999px) {
+      top: 20px;
+      right: 20px;
+
+      &_bottom {
+         top: unset;
+         bottom: 20px;
+      }
+
+      &_large {
+         height: 60px;
+         font-size: 20px;
+         border-radius: 10px;
+      }
+   }
+
+   @media (max-width: 479px) {
+      &_large {
+         height: 50px;
+         font-size: 16px;
+      }
+   }
+}
+
+@keyframes highlightBackground {
+   0% {
+      background-position: 0% 0%;
+      transform: rotate(0deg);
+   }
+
+   25% {
+      background-position: 40% 50%;
+      transform: rotate(45deg);
+   }
+
+   50% {
+      background-position: 100% 90%;
+      transform: rotate(110deg);
+   }
+
+   75% {
+      transform: rotate(180deg);
+   }
+
+   100% {
+      background-position: 0% 0%;
+      transform: rotate(360deg);
+   }
+}
+
+@keyframes highlightBackgroundNonRotate {
+   0% {
+      background-position: 0% 0%;
+      // transform: rotate(0deg);
+   }
+
+   25% {
+      background-position: 40% 50%;
+      // transform: rotate(45deg);
+   }
+
+   50% {
+      background-position: 100% 90%;
+      // transform: rotate(110deg);
+   }
+
+   75% {
+      // transform: rotate(180deg);
+   }
+
+   100% {
+      background-position: 0% 0%;
+      // transform: rotate(360deg);
    }
 }
