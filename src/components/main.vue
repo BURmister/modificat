@@ -3,10 +3,12 @@ import { ref, onMounted } from 'vue';
 import { Vue3Lottie } from 'vue3-lottie';
 
 import { useGsap } from '/src/hooks/useGsap.js';
+
 import aButton from './ui/aButton.vue';
 import aButtonLarge from './ui/aButtonLarge.vue';
 import productCard from './ui/product.vue';
 import reviewCard from './ui/review.vue';
+import Form from './ui/form.vue';
 
 import AnimA from '../assets/anim/anim-1.json';
 import AnimB from '../assets/anim/anim-2.json';
@@ -291,6 +293,26 @@ import AnimB from '../assets/anim/anim-2.json';
                <reviewCard />
             </div>
             <aButtonLarge title="Смотреть на Ozon" pinkStyle="true" />
+         </section>
+      </div>
+
+      <!-- Шестой блок | Вопросы -->
+      <div class="content-wrapper">
+         <section class="land-section _block_rounded _block_blue block-questions_wrapper">
+            <div class="block_questions">
+               <Form>Засыпьте нас<br />вопросами</Form>
+               <div>anim</div>
+            </div>
+            <div class="questions_overlay">
+               <p class="rounded-title white-style">Сколько стоит?</p>
+               <p class="rounded-title white-style">Что выбрать?</p>
+               <p class="rounded-title white-style">Какие есть способы замешивания?</p>
+               <p class="rounded-title white-style">Что такое смесь?</p>
+               <p class="rounded-title white-style">В чем смысл жизни?</p>
+               <p class="rounded-title white-style">Как мешать?</p>
+               <p class="rounded-title white-style">Можно оптом?</p>
+               <p class="rounded-title white-style">Какую смесь приготовить для штукатурки глиной?</p>
+            </div>
          </section>
       </div>
    </main>
@@ -1424,6 +1446,20 @@ import AnimB from '../assets/anim/anim-2.json';
       .review-list {
          gap: 14px;
       }
+   }
+}
+
+.block-questions_wrapper {
+   padding-top: 60px;
+
+   .block_questions {      
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+   }
+
+   .questions_overlay {
+      display: none;
    }
 }
 </style>
