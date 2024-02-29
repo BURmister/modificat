@@ -1,6 +1,8 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import { Vue3Lottie } from 'vue3-lottie';
+import { useIMask } from "vue-imask";
+
 
 import { useGsap } from '/src/hooks/useGsap.js';
 
@@ -12,6 +14,8 @@ import Form from './ui/form.vue';
 
 import AnimA from '../assets/anim/anim-1.json';
 import AnimB from '../assets/anim/anim-2.json';
+import AnimC from '../assets/anim/anim-3.json';
+import AnimD from '../assets/anim/anim-4.json';
 
 // const gsap = useGsap();
 
@@ -298,20 +302,20 @@ import AnimB from '../assets/anim/anim-2.json';
 
       <!-- Шестой блок | Вопросы -->
       <div class="content-wrapper">
-         <section class="land-section _block_rounded _block_blue block-questions_wrapper">
+         <section class="land-section _block_rounded _block_blue-gr-radiant block-questions_wrapper">
             <div class="block_questions">
                <Form>Засыпьте нас<br />вопросами</Form>
-               <div>anim</div>
+               <Vue3Lottie :animationData="AnimC" />
             </div>
             <div class="questions_overlay">
-               <p class="rounded-title white-style">Сколько стоит?</p>
-               <p class="rounded-title white-style">Что выбрать?</p>
-               <p class="rounded-title white-style">Какие есть способы замешивания?</p>
-               <p class="rounded-title white-style">Что такое смесь?</p>
-               <p class="rounded-title white-style">В чем смысл жизни?</p>
-               <p class="rounded-title white-style">Как мешать?</p>
-               <p class="rounded-title white-style">Можно оптом?</p>
-               <p class="rounded-title white-style">Какую смесь приготовить для штукатурки глиной?</p>
+               <p class="rounded-title anim-title anim-title-1 white-style">Сколько стоит?</p>
+               <p class="rounded-title anim-title anim-title-2 white-style">Что выбрать?</p>
+               <p class="rounded-title anim-title anim-title-3 white-style">Какие есть способы<br> замешивания?</p>
+               <p class="rounded-title anim-title anim-title-4 white-style">Что такое смесь?</p>
+               <p class="rounded-title anim-title anim-title-5 white-style">В чем смысл жизни?</p>
+               <p class="rounded-title anim-title anim-title-6 white-style">Как мешать?</p>
+               <p class="rounded-title anim-title anim-title-7 white-style">Можно оптом?</p>
+               <p class="rounded-title anim-title anim-title-8 white-style">Какую смесь приготовить<br> для штукатурки глиной?</p>
             </div>
          </section>
       </div>
@@ -1450,16 +1454,35 @@ import AnimB from '../assets/anim/anim-2.json';
 }
 
 .block-questions_wrapper {
+   position: relative;
+   overflow: hidden;
    padding-top: 60px;
 
    .block_questions {      
+      position: relative;
       display: flex;
       flex-direction: column;
       align-items: center;
+
+      z-index: 2;
+
+      .lottie-animation-container {
+         width: 352px;
+         height: 290px;
+      }
    }
 
    .questions_overlay {
-      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: space-between;
+
+      z-index: 1;
    }
 }
 </style>

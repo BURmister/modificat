@@ -9,9 +9,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "axios": "^1.6.7",
     "gsap": "^3.12.5",
     "scss": "^0.2.4",
     "vue": "^3.4.15",
+    "vue-imask": "^7.5.0",
     "vue3-lottie": "^3.2.0"
   },
   "devDependencies": {
