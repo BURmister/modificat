@@ -4,7 +4,7 @@ import aButtonLarge from './ui/aButtonLarge.vue';
 </script>
 
 <template>
-   <footer>
+   <footer id="contacts">
       <div class="content-wrapper flex flex-col">
          <div class="footer-block footer-info_wrap">
             <div class="footer-info">

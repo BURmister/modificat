@@ -1,5 +1,8 @@
 <script setup>
 import { ref } from 'vue';
+import { useIMask } from 'vue-imask';
+
+import { getData } from '../../hooks/useAxios.js'
 
 const props = defineProps(['title']);
 
@@ -8,8 +11,22 @@ const PHONE = ref('');
 const EMAIL = ref('');
 const QUESTION = ref('');
 
-const submitForm = () => {
+const { el } = useIMask({ mask: '{+7 (9}00{) }000{-}00{-}00' })
 
+const submitForm = () => {
+   // console.log({
+   //    NAME: NAME.value,
+   //    PHONE: PHONE.value,
+   //    EMAIL: EMAIL.value,
+   //    QUESTION: QUESTION.value
+   // })
+
+   try {
+      const data = getData('http://co71945-bitrix-nvmby.tw1.ru/Basket/test');
+      console.log(data);
+   } catch (error) {
+      console.error(error);
+   } finally {}
 };
 
 </script>
@@ -23,7 +40,7 @@ const submitForm = () => {
                <input class="norm-input text-16 text-blue" v-model="NAME" type="text" name="NAME" placeholder="Имя" />
             </div>
             <div class="form-prop form-prop-phone">
-               <input class="norm-input text-16 text-blue" v-model="PHONE" type="tel" name="PHONE" required placeholder="Телефон*" />
+               <input ref="el" class="norm-input text-16 text-blue" v-model="PHONE" type="tel" name="PHONE" required placeholder="Телефон*" />
             </div>
             <div class="form-prop form-prop-email">
                <input class="norm-input text-16 text-blue" v-model="EMAIL" type="email" name="EMAIL" required placeholder="E-mail*" />
@@ -105,6 +122,42 @@ form {
             p {
                transform: scale(0.9);
             }
+         }
+      }
+   }
+
+   @media (max-width: 1919px) {}
+
+   @media (max-width: 1439px) {}
+
+   @media (max-width: 1279px) {
+      width: 820px
+   }
+
+   @media (max-width: 999px) {
+      width: 100%;
+
+      .form-fields {
+         .form-prop_list {
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(3, 42px) 104px 60px;
+            gap: 14px;
+
+            .form-prop {
+               &-q {
+                  grid-column: unset;
+               }
+            }
+         } 
+      }
+   }
+
+   @media (max-width: 719px) {}
+
+   @media (max-width: 479px) {
+      .form-fields {
+         .form-prop_list {
+            grid-template-rows: repeat(3, 42px) 104px 40px;
          }
       }
    }

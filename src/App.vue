@@ -7,7 +7,7 @@ import Footer from './components/footer.vue';
 
 <template>
    <div class="page-wrapper">
-      <!-- <Burger /> -->
+      <Burger />
       <Header />
       <Main />
       <Footer />

@@ -1,8 +1,6 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import { Vue3Lottie } from 'vue3-lottie';
-import { useIMask } from "vue-imask";
-
 
 import { useGsap } from '/src/hooks/useGsap.js';
 
@@ -16,6 +14,9 @@ import AnimA from '../assets/anim/anim-1.json';
 import AnimB from '../assets/anim/anim-2.json';
 import AnimC from '../assets/anim/anim-3.json';
 import AnimD from '../assets/anim/anim-4.json';
+
+const TITLE_LIST = ref(['Сколько стоит?', 'Что выбрать?', 'Какие есть способы<br> замешивания?', 'Что такое смесь?', 'В чем смысл жизни?', 'Как мешать?', 'Можно оптом?', 'Какую смесь приготовить<br> для штукатурки глиной?']);
+
 
 // const gsap = useGsap();
 
@@ -45,7 +46,7 @@ import AnimD from '../assets/anim/anim-4.json';
 
       <!-- Первый блок -->
       <div class="content-wrapper">
-         <section ref="landSection" class="land-section block_main-wrapper">
+         <section id="main" ref="landSection" class="land-section block_main-wrapper">
             <div class="_block_rounded _block_grey block_main block_main-1 flex flex-col justify-between">
                <h2 class="caption-60">Продажа строительных смесей</h2>
                <p class="text-20 font-normal">Наши специалисты всегда готовы помочь вам выбрать наиболее подходящий продукт для вашего проекта.</p>
@@ -73,7 +74,7 @@ import AnimD from '../assets/anim/anim-4.json';
       </div>
 
       <!-- Второй блок | Мы - лучшие -->
-      <div class="content-wrapper">
+      <div id="features" class="content-wrapper">
          <h2 class="caption-100">
             В этом <br />
             мы – <span class="highlight-gradient">лучшие</span>
@@ -82,10 +83,7 @@ import AnimD from '../assets/anim/anim-4.json';
             <div class="_block_rounded block_best block_best-1">
                <div class="block_content">
                   <h2 class="caption-32">Широкий<br />ассортимент</h2>
-                  <p class="text-20">
-                     Мы предлагаем широкий ассортимент строительных смесей для всех видов строительных и отделочных работ: штукатурки, шпатлевки, клеи
-                     для плитки и обоев, наливные полы, грунтовки и многое другое.
-                  </p>
+                  <p class="text-20">Мы предлагаем широкий ассортимент строительных смесей для всех видов строительных и отделочных работ: штукатурки, шпатлевки, клеи для плитки и обоев, наливные полы, грунтовки и многое другое.</p>
                </div>
                <div class="best_story-list">
                   <span class="best_story">
@@ -126,18 +124,16 @@ import AnimD from '../assets/anim/anim-4.json';
             </div>
             <div class="block_best-container">
                <div class="_block_rounded block_best block_best-5 _block_grey">
-                  <h2 class="caption-32">Оптимальное соотношение цены и качества</h2>
-                  <svg class="coin-vector" xmlns="http://www.w3.org/2000/svg" width="119" height="118" viewBox="0 0 119 118" fill="none">
+                  <h2 class="caption-32">Мы есть на Яндекс Маркете</h2>
+                  <img class="ymarket-logo" src="../assets/ymarket-logo.png" width="119" height="118"/>
+                  <!-- <svg class="coin-vector" xmlns="http://www.w3.org/2000/svg" width="119" height="118" viewBox="0 0 119 118" fill="none">
                      <circle cx="59.5" cy="59" r="58.5" stroke="#172026" />
                      <g clip-path="url(#clip0_258_1266)">
                         <path
                            d="M102.5 59C102.5 82.7483 83.2483 102 59.5 102C46.9809 102 35.7113 96.6504 27.8538 88.1119C25.7836 85.8631 23.958 83.401 22.4077 80.7668C18.6535 74.3817 16.5 66.9418 16.5 59C16.5 35.2517 35.7517 16 59.5 16C67.4436 16 74.8835 18.1535 81.2668 21.9094C83.9012 23.4586 86.3629 25.2843 88.6101 27.3555C97.1487 35.2096 102.5 46.4809 102.5 59Z"
                            fill="#F0CD00"
                         />
-                        <path
-                           d="M102.5 59.0004C102.5 82.2134 84.1084 101.13 61.1008 101.971C38.0931 101.13 19.7014 82.2134 19.7014 59.0004C19.7014 35.7875 38.0931 16.871 61.1008 16.0303C84.1084 16.871 102.5 35.7875 102.5 59.0004Z"
-                           fill="#FFDE50"
-                        />
+                        <path d="M102.5 59.0004C102.5 82.2134 84.1084 101.13 61.1008 101.971C38.0931 101.13 19.7014 82.2134 19.7014 59.0004C19.7014 35.7875 38.0931 16.871 61.1008 16.0303C84.1084 16.871 102.5 35.7875 102.5 59.0004Z" fill="#FFDE50" />
                         <path
                            d="M88.6102 27.3553L27.8538 88.1116C25.7836 85.8629 23.958 83.4007 22.4077 80.7665L81.2668 21.9092C83.9012 23.4583 86.3629 25.284 88.6102 27.3553ZM99.5339 43.2793L43.7778 99.0354C39.862 97.495 36.1938 95.3874 32.8909 92.7802L93.2805 32.3906C95.8882 35.6936 97.9952 39.3625 99.5339 43.2793Z"
                            fill="#FFEA94"
@@ -168,9 +164,10 @@ import AnimD from '../assets/anim/anim-4.json';
                            <rect width="86" height="86" fill="white" transform="translate(16.5 16)" />
                         </clipPath>
                      </defs>
-                  </svg>
+                  </svg> -->
                   <div class="rounded-title_list">
                      <p class="rounded-title text-16">Доступные цены</p>
+                     <p class="rounded-title text-16">Быстрая доставка</p>
                      <p class="rounded-title text-16">Качественные материалы</p>
                   </div>
                </div>
@@ -216,7 +213,7 @@ import AnimD from '../assets/anim/anim-4.json';
       </div>
 
       <!-- Третий блок | Примеры товаров -->
-      <div class="content-wrapper">
+      <div id="examples" class="content-wrapper">
          <h2 class="caption-100">Примеры <br /><span class="highlight-gradient">продукции</span></h2>
       </div>
       <section class="land-section block_products-wrapper flex flex-col">
@@ -234,7 +231,7 @@ import AnimD from '../assets/anim/anim-4.json';
       </section>
 
       <!-- Четвертый блок | О нас -->
-      <div class="content-wrapper">
+      <div id="about" class="content-wrapper">
          <h2 class="caption-100">
             Немного <br />
             о <span class="highlight-gradient">нас</span>
@@ -262,9 +259,7 @@ import AnimD from '../assets/anim/anim-4.json';
                </div>
                <div class="content_desc">
                   <p class="text-20 text-blue">
-                     Компания «Модификат» имеет все необходимые сертификаты и лицензии, подтверждающие высокое качество нашей продукции. Мы постоянно
-                     совершенствуем наши технологии и следим за новыми тенденциями в строительной отрасли, чтобы предлагать нашим клиентам самые
-                     лучшие решения для их проектов.
+                     Компания «Модификат» имеет все необходимые сертификаты и лицензии, подтверждающие высокое качество нашей продукции. Мы постоянно совершенствуем наши технологии и следим за новыми тенденциями в строительной отрасли, чтобы предлагать нашим клиентам самые лучшие решения для их проектов.
                   </p>
                </div>
             </div>
@@ -276,16 +271,13 @@ import AnimD from '../assets/anim/anim-4.json';
             </div>
             <div class="_block_rounded _block_grey block_about block_about-4">
                <h3 class="caption-32">Экологичность</h3>
-               <p class="text-20">
-                  Мы заботимся о здоровье наших клиентов и окружающей среде, поэтому наша продукция не содержит вредных веществ и не вызывает
-                  аллергических реакций.
-               </p>
+               <p class="text-20">Мы заботимся о здоровье наших клиентов и окружающей среде, поэтому наша продукция не содержит вредных веществ и не вызывает аллергических реакций.</p>
             </div>
          </section>
       </div>
 
       <!-- Пятый блок | Отзывы -->
-      <div class="content-wrapper">
+      <div id="reviews" class="content-wrapper">
          <h2 class="caption-100"><span class="highlight-gradient">Отзывы</span></h2>
          <section class="land-section block_review-wrapper flex flex-col">
             <div class="review-list">
@@ -308,14 +300,7 @@ import AnimD from '../assets/anim/anim-4.json';
                <Vue3Lottie :animationData="AnimC" />
             </div>
             <div class="questions_overlay">
-               <p class="rounded-title anim-title anim-title-1 white-style">Сколько стоит?</p>
-               <p class="rounded-title anim-title anim-title-2 white-style">Что выбрать?</p>
-               <p class="rounded-title anim-title anim-title-3 white-style">Какие есть способы<br> замешивания?</p>
-               <p class="rounded-title anim-title anim-title-4 white-style">Что такое смесь?</p>
-               <p class="rounded-title anim-title anim-title-5 white-style">В чем смысл жизни?</p>
-               <p class="rounded-title anim-title anim-title-6 white-style">Как мешать?</p>
-               <p class="rounded-title anim-title anim-title-7 white-style">Можно оптом?</p>
-               <p class="rounded-title anim-title anim-title-8 white-style">Какую смесь приготовить<br> для штукатурки глиной?</p>
+               <p v-for="(title, index) in TITLE_LIST" :key="index" class="rounded-title anim-title anim-title-1 white-style" v-html="title"></p>
             </div>
          </section>
       </div>
@@ -686,6 +671,16 @@ import AnimD from '../assets/anim/anim-4.json';
             right: 64px;
          }
 
+         .ymarket-logo {
+            position: absolute;
+            top: 35%;
+            right: 60px;
+
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
+         }
+
          .rounded-title_list {
             display: flex;
             flex-direction: column;
@@ -813,6 +808,15 @@ import AnimD from '../assets/anim/anim-4.json';
             }
 
             .coin-vector {
+               top: 30px;
+               right: 30px;
+
+               width: auto;
+               height: calc(100% - 60px);
+               aspect-ratio: 1 / 1;
+            }
+
+            .ymarket-logo {
                top: 30px;
                right: 30px;
 
@@ -973,6 +977,14 @@ import AnimD from '../assets/anim/anim-4.json';
                height: 103px;
                width: 103px;
             }
+
+            .ymarket-logo {
+               top: unset;
+               right: 20px;
+               bottom: 20px;
+               height: 103px;
+               width: 103px;
+            }
          }
       }
 
@@ -1030,6 +1042,11 @@ import AnimD from '../assets/anim/anim-4.json';
             gap: 40px;
 
             .coin-vector {
+               height: 70px;
+               width: 70px;
+            }
+
+            .ymarket-logo {
                height: 70px;
                width: 70px;
             }
@@ -1458,7 +1475,7 @@ import AnimD from '../assets/anim/anim-4.json';
    overflow: hidden;
    padding-top: 60px;
 
-   .block_questions {      
+   .block_questions {
       position: relative;
       display: flex;
       flex-direction: column;
@@ -1483,6 +1500,38 @@ import AnimD from '../assets/anim/anim-4.json';
       justify-content: space-between;
 
       z-index: 1;
+
+      display: none;
    }
+
+   @media (max-width: 1919px) {}
+
+   @media (max-width: 1439px) {}
+
+   @media (max-width: 1279px) {
+      padding-top: 40px;
+
+      .block_questions {
+         .lottie-animation-container {
+            width: 267px;
+            height: 220px;
+         }
+      }
+   }
+
+   @media (max-width: 999px) {
+      padding-top: 30px;
+   }
+
+   @media (max-width: 719px) {
+      .block_questions {
+         .lottie-animation-container {
+            width: 240px;
+            height: 198px;
+         }
+      }
+   }
+
+   @media (max-width: 479px) {}
 }
 </style>
