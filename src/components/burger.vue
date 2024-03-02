@@ -195,6 +195,17 @@ const clickOnLink = () => {
          pointer-events: auto;
          z-index: 2;
 
+         svg {
+            transition: all 0.2s ease-in-out;
+         }
+
+         &:active {
+            svg {
+               opacity: 0.8;
+               transform: scale(0.9);
+            }
+         }
+
          &-left {
             position: absolute;
             top: -4px;
