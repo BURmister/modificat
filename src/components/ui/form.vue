@@ -2,7 +2,7 @@
 import { ref } from 'vue';
 import { useIMask } from 'vue-imask';
 
-import { getData } from '../../hooks/useAxios.js'
+import { getData } from '../../hooks/useAxios.js';
 
 const props = defineProps(['title']);
 
@@ -11,7 +11,7 @@ const PHONE = ref('');
 const EMAIL = ref('');
 const QUESTION = ref('');
 
-const { el } = useIMask({ mask: '{+7 (9}00{) }000{-}00{-}00' })
+const { el } = useIMask({ mask: '{+7 (9}00{) }000{-}00{-}00' });
 
 const submitForm = () => {
    // console.log({
@@ -26,9 +26,9 @@ const submitForm = () => {
       console.log(data);
    } catch (error) {
       console.error(error);
-   } finally {}
+   } finally {
+   }
 };
-
 </script>
 
 <template>
@@ -43,7 +43,7 @@ const submitForm = () => {
                <input ref="el" class="norm-input text-16 text-blue" v-model="PHONE" type="tel" name="PHONE" required placeholder="Телефон*" />
             </div>
             <div class="form-prop form-prop-email">
-               <input class="norm-input text-16 text-blue" v-model="EMAIL" type="email" name="EMAIL" required placeholder="E-mail*" />
+               <input class="norm-input text-16 text-blue" v-model="EMAIL" type="email" name="EMAIL" placeholder="E-mail" />
             </div>
             <div class="form-prop form-prop-q">
                <textarea class="norm-input text-16 text-blue" v-model="QUESTION" name="QUESTION" placeholder="Напишите свои вопросы"></textarea>
@@ -54,20 +54,20 @@ const submitForm = () => {
          </div>
          <div class="form-check">
             <div class="checkbox-wrap">
-               <input class="checkbox-input" type="checkbox" required id="confirm-privacy" />
+               <input class="checkbox-input" type="checkbox" required id="confirm-privacy" checked />
                <label class="checkbox-label" for="confirm-privacy">
                   <svg class="active-check" xmlns="http://www.w3.org/2000/svg" width="24" height="23" viewBox="0 0 24 23" fill="none">
-                     <rect x="1.5" y="1" width="21" height="21" rx="7" fill="#F0C6FB" stroke="#F0C6FB" stroke-width="2"/>
-                     <path d="M7.5 11L10.5 14.5L17 8.5" stroke="#4328EB" stroke-width="2" stroke-linecap="round"/>
+                     <rect x="1.5" y="1" width="21" height="21" rx="7" fill="#F0C6FB" stroke="#F0C6FB" stroke-width="2" />
+                     <path d="M7.5 11L10.5 14.5L17 8.5" stroke="#4328EB" stroke-width="2" stroke-linecap="round" />
                   </svg>
                   <div class="disable-check-wrap">
                      <svg class="disable-check" xmlns="http://www.w3.org/2000/svg" width="24" height="23" viewBox="0 0 24 23" fill="none">
-                        <rect x="1.5" y="1" width="21" height="21" rx="7" fill="var(--blue)"/>
+                        <rect x="1.5" y="1" width="21" height="21" rx="7" fill="var(--blue)" />
                      </svg>
                   </div>
                </label>
             </div>
-            <p class="text-16 text-white">Принимаю условия политики конфиденциальности</p>
+            <p class="text-16 text-white">Принимаю условия <a href="/politics">политики конфиденциальности</a></p>
          </div>
       </div>
    </form>
@@ -126,16 +126,21 @@ form {
       }
    }
 
-   @media (max-width: 1919px) {}
+   @media (max-width: 1919px) {
+   }
 
-   @media (max-width: 1439px) {}
+   @media (max-width: 1439px) {
+   }
 
    @media (max-width: 1279px) {
-      width: 820px
+      width: 820px;
+      gap: 30px;
    }
 
    @media (max-width: 999px) {
+      padding: 0 30px;
       width: 100%;
+      gap: 20px;
 
       .form-fields {
          .form-prop_list {
@@ -148,13 +153,20 @@ form {
                   grid-column: unset;
                }
             }
-         } 
+         }
+
+         .submit-button {
+            border-radius: 10px;
+         }
       }
    }
 
-   @media (max-width: 719px) {}
+   @media (max-width: 719px) {
+      padding: 0 20px;
+   }
 
    @media (max-width: 479px) {
+      padding: 0 10px;
       .form-fields {
          .form-prop_list {
             grid-template-rows: repeat(3, 42px) 104px 40px;

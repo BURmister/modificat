@@ -350,6 +350,8 @@ footer {
    }
 
    @media (max-width: 1439px) {
+      padding: 30px;
+
       .content-wrapper {
          .footer-copy_wrap {
             .text-16 {
@@ -396,6 +398,7 @@ footer {
    }
 
    @media (max-width: 999px) {
+      padding: 20px;
       border-radius: 30px 30px 0 0;
 
       .content-wrapper {
@@ -461,8 +464,8 @@ footer {
    }
 
    @media (max-width: 479px) {
-      padding-top: 10px;
-      padding-bottom: 10px;
+      padding: 10px;
+      border-radius: 20px 20px 0 0;
 
       .content-wrapper {
          .footer-info_wrap {

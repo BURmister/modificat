@@ -454,6 +454,10 @@ button {
    @media (max-width: 719px) {
       font-size: 16px;
    }
+
+   @media (max-width: 479px) {
+      font-size: 14px;
+   }
 }
 
 @keyframes highlightGradient {
@@ -843,10 +847,22 @@ button {
    &::placeholder {
       color: inherit;
    }
+
+   @media (max-width: 1279px) {
+      padding: 0 20px;
+   }
+
+   @media (max-width: 999px) {
+      border-radius: 10px;
+   }
 }
 
 textarea.norm-input {
    padding: 20px 30px;
+
+   @media (max-width: 1279px) {
+      padding: 10px 20px;
+   }
 }
 
 .checkbox {
@@ -899,7 +915,7 @@ textarea.norm-input {
       }
    }
 
-   &-input:checked ~ &-label {
+   &-input:checked~&-label {
       .active-check {
          svg {
             rect {
@@ -922,6 +938,6 @@ textarea.norm-input {
 .form-check {
    display: flex;
    flex-direction: row;
+   align-items: center;
    gap: 12px;
 }
-

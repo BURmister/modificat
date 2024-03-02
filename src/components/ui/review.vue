@@ -32,5 +32,14 @@
       align-items: center;
       gap: 20px;
    }
+
+   @media (max-width: 479px) {
+      .card-user {
+         svg {
+            width: 44px;
+            height: 44px;
+         }
+      }
+   }
 }
 </style>

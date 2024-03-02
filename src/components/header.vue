@@ -78,8 +78,8 @@ import { ref } from 'vue';
          margin-top: 30px;
       }
 
-      @media (max-width: 479px) {
-         margin-top: 20px;
-      }
+      // @media (max-width: 479px) {
+      //    margin-top: 20px;
+      // }
    }
 </style>

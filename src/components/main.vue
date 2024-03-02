@@ -1,8 +1,10 @@
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, onBeforeUpdate, onUpdated } from 'vue';
 import { Vue3Lottie } from 'vue3-lottie';
+import { useElementSize } from '@vueuse/core';
 
 import { useGsap } from '/src/hooks/useGsap.js';
+import { getRandom } from '/src/hooks/useMath.js';
 
 import aButton from './ui/aButton.vue';
 import aButtonLarge from './ui/aButtonLarge.vue';
@@ -15,29 +17,70 @@ import AnimB from '../assets/anim/anim-2.json';
 import AnimC from '../assets/anim/anim-3.json';
 import AnimD from '../assets/anim/anim-4.json';
 
-const TITLE_LIST = ref(['Сколько стоит?', 'Что выбрать?', 'Какие есть способы<br> замешивания?', 'Что такое смесь?', 'В чем смысл жизни?', 'Как мешать?', 'Можно оптом?', 'Какую смесь приготовить<br> для штукатурки глиной?']);
+const TITLE_LIST = ref([
+   'Сколько стоит?',
+   'Что выбрать?',
+   'Какие есть способы<br> замешивания?',
+   'Что такое смесь?',
+   'В чем смысл жизни?',
+   'Как мешать?',
+   'Можно оптом?',
+   'Какую смесь приготовить<br> для штукатурки глиной?',
+]);
 
-
-// const gsap = useGsap();
-
+const animTitleOverlay = ref(null);
 // const landSection = ref(null);
 // const landSection2 = ref(null);
 
-// onMounted(() => {
-//    gsap.from(landSection2.value, {
-//       scrollTrigger: {
-//          trigger: landSection.value,
-//          start: `80% 30%`,
-//          markers: true,
-//          end: `85% 20%`,
-//          scrub: 1,
-//       },
-//       x: '-5%',
-//       opacity: 0,
-//       scale: 0.3,
-//       rotation: 25,
-//    });
-// });
+
+
+// СОБИРАЕМ ЭЛЕМЕНТЫ ДЛЯ АНИМАЦИИ
+let animTitleList = [];
+
+const gsap = useGsap();
+
+// ГОЛУБОЙ ОВЕРЛЭЙ, ТОЧНЕЕ ЕГО ПАРАМЕТРЫ
+const OVERLAY_PARAMETERS = useElementSize(animTitleOverlay);
+
+const setAnimTitle = (item) => {
+   if (item) animTitleList.push(item);
+};
+
+onMounted(() => {
+   // gsap.from(landSection2.value, {
+   //    scrollTrigger: {
+   //       trigger: landSection.value,
+   //       start: `80% 30%`,
+   //       markers: true,
+   //       end: `85% 20%`,
+   //       scrub: 1,
+   //    },
+   //    x: '-5%',
+   //    opacity: 0,
+   //    scale: 0.3,
+   //    rotation: 25,
+   // });
+
+
+   // ЗДЕСЬ ФОРЫЧ СОБРАННЫХ ЭЛЕМЕНТОВ
+   animTitleList.forEach((item) => {
+      const offsetY = OVERLAY_PARAMETERS.height.value * 1.5;
+      const index = item.dataset.itemIndex;
+
+      console.log(getRandom(0, 2 + index / 2));
+
+
+      // ЗАПУСК АНИМАЦИИ
+      gsap.to(item, {
+         y: offsetY,
+         rotation: getRandom(-90, 90),
+         duration: getRandom(8, 16),
+         delay: getRandom(0, 2 + index / 2),
+         repeat: -1,
+         ease: `power${getRandom(1, 4)}.in`,
+      });
+   });
+});
 </script>
 
 <template>
@@ -83,7 +126,10 @@ const TITLE_LIST = ref(['Сколько стоит?', 'Что выбрать?', 
             <div class="_block_rounded block_best block_best-1">
                <div class="block_content">
                   <h2 class="caption-32">Широкий<br />ассортимент</h2>
-                  <p class="text-20">Мы предлагаем широкий ассортимент строительных смесей для всех видов строительных и отделочных работ: штукатурки, шпатлевки, клеи для плитки и обоев, наливные полы, грунтовки и многое другое.</p>
+                  <p class="text-20">
+                     Мы предлагаем широкий ассортимент строительных смесей для всех видов строительных и отделочных работ: штукатурки, шпатлевки, клеи
+                     для плитки и обоев, наливные полы, грунтовки и многое другое.
+                  </p>
                </div>
                <div class="best_story-list">
                   <span class="best_story">
@@ -125,7 +171,7 @@ const TITLE_LIST = ref(['Сколько стоит?', 'Что выбрать?', 
             <div class="block_best-container">
                <div class="_block_rounded block_best block_best-5 _block_grey">
                   <h2 class="caption-32">Мы есть на Яндекс Маркете</h2>
-                  <img class="ymarket-logo" src="../assets/ymarket-logo.png" width="119" height="118"/>
+                  <img class="ymarket-logo" src="../assets/ymarket-logo.png" width="119" height="118" />
                   <!-- <svg class="coin-vector" xmlns="http://www.w3.org/2000/svg" width="119" height="118" viewBox="0 0 119 118" fill="none">
                      <circle cx="59.5" cy="59" r="58.5" stroke="#172026" />
                      <g clip-path="url(#clip0_258_1266)">
@@ -259,7 +305,9 @@ const TITLE_LIST = ref(['Сколько стоит?', 'Что выбрать?', 
                </div>
                <div class="content_desc">
                   <p class="text-20 text-blue">
-                     Компания «Модификат» имеет все необходимые сертификаты и лицензии, подтверждающие высокое качество нашей продукции. Мы постоянно совершенствуем наши технологии и следим за новыми тенденциями в строительной отрасли, чтобы предлагать нашим клиентам самые лучшие решения для их проектов.
+                     Компания «Модификат» имеет все необходимые сертификаты и лицензии, подтверждающие высокое качество нашей продукции. Мы постоянно
+                     совершенствуем наши технологии и следим за новыми тенденциями в строительной отрасли, чтобы предлагать нашим клиентам самые
+                     лучшие решения для их проектов.
                   </p>
                </div>
             </div>
@@ -271,7 +319,10 @@ const TITLE_LIST = ref(['Сколько стоит?', 'Что выбрать?', 
             </div>
             <div class="_block_rounded _block_grey block_about block_about-4">
                <h3 class="caption-32">Экологичность</h3>
-               <p class="text-20">Мы заботимся о здоровье наших клиентов и окружающей среде, поэтому наша продукция не содержит вредных веществ и не вызывает аллергических реакций.</p>
+               <p class="text-20">
+                  Мы заботимся о здоровье наших клиентов и окружающей среде, поэтому наша продукция не содержит вредных веществ и не вызывает
+                  аллергических реакций.
+               </p>
             </div>
          </section>
       </div>
@@ -294,13 +345,21 @@ const TITLE_LIST = ref(['Сколько стоит?', 'Что выбрать?', 
 
       <!-- Шестой блок | Вопросы -->
       <div class="content-wrapper">
-         <section class="land-section _block_rounded _block_blue-gr-radiant block-questions_wrapper">
+         <section ref="animTitleOverlay" class="land-section _block_rounded _block_blue-gr-radiant block-questions_wrapper">
             <div class="block_questions">
                <Form>Засыпьте нас<br />вопросами</Form>
                <Vue3Lottie :animationData="AnimC" />
             </div>
             <div class="questions_overlay">
-               <p v-for="(title, index) in TITLE_LIST" :key="index" class="rounded-title anim-title anim-title-1 white-style" v-html="title"></p>
+               <p
+                  v-for="(title, index) in TITLE_LIST"
+                  class="rounded-title anim-title white-style"
+                  :class="[`anim-title-${index + 1}`]"
+                  :key="index"
+                  :ref="setAnimTitle"
+                  v-html="title"
+                  :data-item-index="index"
+               ></p>
             </div>
          </section>
       </div>
@@ -530,6 +589,12 @@ const TITLE_LIST = ref(['Сколько стоит?', 'Что выбрать?', 
       row-gap: 14px;
 
       .block_main {
+         &-2 {
+            .caption-20nn {
+               max-width: 340px;
+            }
+         }
+
          &-4 {
             max-height: 382px;
 
@@ -1480,6 +1545,7 @@ const TITLE_LIST = ref(['Сколько стоит?', 'Что выбрать?', 
       display: flex;
       flex-direction: column;
       align-items: center;
+      gap: 20px;
 
       z-index: 2;
 
@@ -1491,22 +1557,42 @@ const TITLE_LIST = ref(['Сколько стоит?', 'Что выбрать?', 
 
    .questions_overlay {
       position: absolute;
-      top: 0;
+      bottom: 150%;
       left: 0;
 
+      padding: 30px;
       width: 100%;
-      height: 100%;
+
       display: flex;
       justify-content: space-between;
+      flex-wrap: wrap;
 
       z-index: 1;
 
-      display: none;
+      .anim-title {
+         // position: absolute;
+         // bottom: 100%;
+         // right: 0;
+
+         // animation: dropQuestion 4s ease-in-out infinite;
+      }
+
+      @keyframes dropQuestion {
+         from {
+            transform: translateY(0%);
+         }
+
+         to {
+            transform: translateY(100%);
+         }
+      }
    }
 
-   @media (max-width: 1919px) {}
+   @media (max-width: 1919px) {
+   }
 
-   @media (max-width: 1439px) {}
+   @media (max-width: 1439px) {
+   }
 
    @media (max-width: 1279px) {
       padding-top: 40px;
@@ -1521,17 +1607,28 @@ const TITLE_LIST = ref(['Сколько стоит?', 'Что выбрать?', 
 
    @media (max-width: 999px) {
       padding-top: 30px;
+
+      .block_questions {
+         gap: 30px;
+      }
    }
 
    @media (max-width: 719px) {
       .block_questions {
+         align-items: flex-end;
+
          .lottie-animation-container {
+            margin: unset;
             width: 240px;
             height: 198px;
          }
       }
    }
 
-   @media (max-width: 479px) {}
+   @media (max-width: 479px) {
+      .block_questions {
+         gap: 64px;
+      }
+   }
 }
 </style>
