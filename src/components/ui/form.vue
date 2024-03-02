@@ -91,6 +91,7 @@ form {
          .form-prop {
             &-q {
                grid-column: span 2;
+               max-height: 150px;
             }
          }
       }
@@ -151,6 +152,7 @@ form {
             .form-prop {
                &-q {
                   grid-column: unset;
+                  max-height: 104px;
                }
             }
          }

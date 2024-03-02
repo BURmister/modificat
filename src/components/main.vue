@@ -1,7 +1,7 @@
 <script setup>
 import { ref, onMounted, onBeforeUpdate, onUpdated } from 'vue';
 import { Vue3Lottie } from 'vue3-lottie';
-import { useElementSize } from '@vueuse/core';
+import { useElementSize, useWindowSize } from '@vueuse/core';
 
 import { useGsap } from '/src/hooks/useGsap.js';
 import { getRandom } from '/src/hooks/useMath.js';
@@ -32,13 +32,12 @@ const animTitleOverlay = ref(null);
 // const landSection = ref(null);
 // const landSection2 = ref(null);
 
-
-
 // СОБИРАЕМ ЭЛЕМЕНТЫ ДЛЯ АНИМАЦИИ
 let animTitleList = [];
 
 const gsap = useGsap();
 
+const { width } = useWindowSize();
 // ГОЛУБОЙ ОВЕРЛЭЙ, ТОЧНЕЕ ЕГО ПАРАМЕТРЫ
 const OVERLAY_PARAMETERS = useElementSize(animTitleOverlay);
 
@@ -61,21 +60,20 @@ onMounted(() => {
    //    rotation: 25,
    // });
 
-
    // ЗДЕСЬ ФОРЫЧ СОБРАННЫХ ЭЛЕМЕНТОВ
    animTitleList.forEach((item) => {
-      const offsetY = OVERLAY_PARAMETERS.height.value * 1.5;
-      const index = item.dataset.itemIndex;
+      const offsetY = OVERLAY_PARAMETERS.height.value + (item.offsetHeight + item.offsetWidth) * 2;
+      // const index = item.dataset.itemIndex;
 
-      console.log(getRandom(0, 2 + index / 2));
-
+      let duration = getRandom(6, 10);
+      if (width < 480) duration = getRandom(9, 13);
 
       // ЗАПУСК АНИМАЦИИ
       gsap.to(item, {
          y: offsetY,
-         rotation: getRandom(-90, 90),
-         duration: getRandom(8, 16),
-         delay: getRandom(0, 2 + index / 2),
+         rotation: getRandom(-60, 60),
+         duration: duration,
+         delay: getRandom(0, 8),
          repeat: -1,
          ease: `power${getRandom(1, 4)}.in`,
       });
@@ -1557,7 +1555,7 @@ onMounted(() => {
 
    .questions_overlay {
       position: absolute;
-      bottom: 150%;
+      bottom: 100%;
       left: 0;
 
       padding: 30px;
