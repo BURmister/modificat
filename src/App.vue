@@ -21,7 +21,7 @@ onMounted(() => {
       scrollTrigger: {
          trigger: '#contacts',
          start: `0% 100%`,
-         markers: true,
+         markers: false,
          end: `100% 80%`,
          scrub: 1,
       },
