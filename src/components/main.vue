@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, onBeforeUpdate, onUpdated, defineProps } from 'vue';
+import { ref, onMounted } from 'vue';
 import { Vue3Lottie } from 'vue3-lottie';
 import { useElementSize, useWindowSize } from '@vueuse/core';
 
@@ -17,9 +17,6 @@ import AnimB from '../assets/anim/anim-2.json';
 import AnimC from '../assets/anim/anim-3.json';
 import AnimD from '../assets/anim/anim-4.json';
 
-const props = defineProps(['footerRef', 'FOOTER_HEIGHT']);
-console.log(props);
-
 const TITLE_LIST = ref([
    'Сколько стоит?',
    'Что выбрать?',
@@ -31,7 +28,6 @@ const TITLE_LIST = ref([
    'Какую смесь приготовить<br> для штукатурки глиной?',
 ]);
 
-const MAIN = ref(null);
 const mainSection = ref(null);
 const featureSection = ref(null);
 const exampleSection = ref(null);
@@ -65,7 +61,7 @@ onMounted(() => {
          start: `80% 30%`,
          markers: false,
          end: `85% 20%`,
-         scrub: 1,
+         // scrub: 1,
       },
       // x: '-5%',
       opacity: 0,
@@ -81,7 +77,7 @@ onMounted(() => {
          start: `80% 30%`,
          markers: false,
          end: `85% 20%`,
-         scrub: 1,
+         // scrub: 1,
       },
       // x: '-5%',
       opacity: 0,
@@ -97,7 +93,7 @@ onMounted(() => {
          start: `90% 30%`,
          markers: false,
          end: `95% 20%`,
-         scrub: 1,
+         // scrub: 1,
       },
       // x: '-5%',
       opacity: 0,
@@ -113,7 +109,7 @@ onMounted(() => {
          start: `80% 30%`,
          markers: false,
          end: `85% 20%`,
-         scrub: 1,
+         // scrub: 1,
       },
       // x: '-5%',
       opacity: 0,
@@ -129,7 +125,7 @@ onMounted(() => {
          start: `80% 30%`,
          markers: false,
          end: `95% 20%`,
-         scrub: 1,
+         // scrub: 1,
       },
       // x: '-5%',
       opacity: 0,
@@ -137,23 +133,6 @@ onMounted(() => {
       duration: 1,
 
       // rotation: 2,
-   });
-
-   console.log(footerRef);
-   // не height.value / 2, а вся высота футера
-   // console.log(height.value / 2);
-   gsap.to(MAIN.value, {
-      scrollTrigger: {
-         trigger: FOOTER.value,
-         start: `0% 100%`,
-         markers: false,
-         end: `${FOOTER_HEIGHT} 80%`,
-         scrub: 1,
-      },
-      y: FOOTER_HEIGHT,
-      opacity: 0.8,
-      scale: 0.9,
-      duration: 1,
    });
 
    animTitleList.forEach((item) => {
@@ -176,7 +155,7 @@ onMounted(() => {
 </script>
 
 <template>
-   <main ref="MAIN">
+   <main id="main">
       <h1>МОДИФИКАТ - ПРОДАЖА СТРОИТЕЛЬНЫХ СМЕСЕЙ</h1>
 
       <!-- Первый блок -->
