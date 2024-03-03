@@ -4,7 +4,7 @@ import { useIMask } from 'vue-imask';
 
 import { getData } from '../../hooks/useAxios.js';
 
-const props = defineProps(['title']);
+const props = defineProps(['title', 'checkId']);
 
 const NAME = ref('');
 const PHONE = ref('');
@@ -63,8 +63,8 @@ const submitForm = () => {
          </div>
          <div class="form-check">
             <div class="checkbox-wrap">
-               <input class="checkbox-input" type="checkbox" required id="confirm-privacy" checked />
-               <label class="checkbox-label" for="confirm-privacy">
+               <input class="checkbox-input" type="checkbox" name="CONFIRM_PRIVACY" required :id="checkId" checked />
+               <label class="checkbox-label" :for="checkId">
                   <svg class="active-check" xmlns="http://www.w3.org/2000/svg" width="24" height="23" viewBox="0 0 24 23" fill="none">
                      <rect x="1.5" y="1" width="21" height="21" rx="7" fill="#F0C6FB" stroke="#F0C6FB" stroke-width="2" />
                      <path d="M7.5 11L10.5 14.5L17 8.5" stroke="#4328EB" stroke-width="2" stroke-linecap="round" />
