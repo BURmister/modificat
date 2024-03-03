@@ -32,7 +32,7 @@ const submitForm = () => {
 </script>
 
 <template>
-   <form class="flex flex-col" @submit.prevent="submitForm">
+   <form class="flex flex-col items-center" @submit.prevent="submitForm">
       <h3 class="text-center caption-32 text-white"><slot></slot></h3>
       <div class="form-fields flex flex-col">
          <div class="form-prop_list">
@@ -178,6 +178,11 @@ form {
 
    @media (max-width: 479px) {
       padding: 0 10px;
+
+      .caption-32 {
+         max-width: 280px;
+      }
+
       .form-fields {
          .form-prop_list {
             grid-template-rows: repeat(3, 42px) 104px 40px;

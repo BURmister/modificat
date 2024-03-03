@@ -1,5 +1,6 @@
 <script setup>
 const props = defineProps(['href', 'whiteStyle', 'bottomStyle']);
+defineEmits(['handleClick']);
 </script>
 
 <template>
@@ -18,7 +19,13 @@ const props = defineProps(['href', 'whiteStyle', 'bottomStyle']);
          />
       </svg>
    </a>
-   <button v-else type="button" class="a-button" :class="{ 'a-button_white': whiteStyle, 'a-button_bottom': bottomStyle }">
+   <button
+      v-else
+      type="button"
+      class="a-button"
+      :class="{ 'a-button_white': whiteStyle, 'a-button_bottom': bottomStyle }"
+      @click="$emit('handleClick')"
+   >
       <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" fill="none">
          <circle cx="25" cy="25" r="25" fill="#4328EB" />
          <path

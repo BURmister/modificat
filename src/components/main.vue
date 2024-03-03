@@ -11,6 +11,7 @@ import aButtonLarge from './ui/aButtonLarge.vue';
 import productCard from './ui/product.vue';
 import reviewCard from './ui/review.vue';
 import Form from './ui/form.vue';
+import Modal from './ui/modal.vue';
 
 import AnimA from '../assets/anim/anim-1.json';
 import AnimB from '../assets/anim/anim-2.json';
@@ -180,7 +181,7 @@ onMounted(() => {
                <div class="_block_rounded _block_grey block_main block_main-2 flex flex-col justify-between">
                   <h2 class="caption-20nn text-blue">Консультация профессионалов</h2>
                   <p class="text-16nn font-normal">По подбору строительных смесей в зависимости от типа выполняемых работ и условий эксплуатации.</p>
-                  <aButton />
+                  <Modal><Form checkId="12181">Консультация профессионалов</Form></Modal>
                </div>
                <img src="./../assets/stroitelsha.png" class="_block_rounded block_main block_main-3" />
             </div>
@@ -237,7 +238,7 @@ onMounted(() => {
             <div class="_block_rounded _block_blue block_best block_best-4">
                <h2 class="caption-32 text-white">Индивидуальные решения</h2>
                <p class="text-20 text-white">Подберём смесь под ваш запрос.</p>
-               <aButton whiteStyle="true" bottomStyle="true" />
+               <Modal buttonWhiteStyle="true" buttonBottomStyle="true"><Form checkId="127351">Индивидуальные решения</Form></Modal>
             </div>
             <div class="block_best-container">
                <div class="_block_rounded block_best block_best-5 _block_grey">
@@ -344,7 +345,7 @@ onMounted(() => {
                <productCard />
             </div>
             <div class="content-wrapper">
-               <aButtonLarge title="Заказать смесь" />
+               <Modal buttonLarge="true" buttonTitle="Заказать смесь"><Form checkId="19681">Заказать смесь</Form></Modal>
             </div>
          </section>
       </div>
@@ -412,7 +413,7 @@ onMounted(() => {
                <reviewCard />
                <reviewCard />
             </div>
-            <aButtonLarge title="Смотреть на Ozon" pinkStyle="true" />
+            <aButtonLarge href="https://github.com" title="Смотреть на Ozon" pinkStyle="true" />
          </section>
       </div>
 

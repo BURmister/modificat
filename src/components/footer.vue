@@ -1,8 +1,6 @@
 <script setup>
-import { defineProps } from 'vue';
-import aButtonLarge from './ui/aButtonLarge.vue';
-
-
+import Modal from './ui/modal.vue';
+import Form from './ui/form.vue';
 </script>
 
 <template>
@@ -95,7 +93,7 @@ import aButtonLarge from './ui/aButtonLarge.vue';
             </div>
          </div>
          <div class="footer-block">
-            <aButtonLarge title="Получить консультацию" pinkStyle="true" />
+            <Modal buttonLarge="true" buttonTitle="Получить консультацию" buttonPinkStyle="true"><Form checkId="1333481">Получить консультацию</Form></Modal>
          </div>
          <div class="footer-block footer-copy_wrap">
             <div class="footer-copy">
