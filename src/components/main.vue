@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, onBeforeUpdate, onUpdated } from 'vue';
+import { ref, onMounted, onBeforeUpdate, onUpdated, defineProps } from 'vue';
 import { Vue3Lottie } from 'vue3-lottie';
 import { useElementSize, useWindowSize } from '@vueuse/core';
 
@@ -17,6 +17,9 @@ import AnimB from '../assets/anim/anim-2.json';
 import AnimC from '../assets/anim/anim-3.json';
 import AnimD from '../assets/anim/anim-4.json';
 
+const props = defineProps(['footerRef', 'FOOTER_HEIGHT']);
+console.log(props);
+
 const TITLE_LIST = ref([
    'Сколько стоит?',
    'Что выбрать?',
@@ -28,17 +31,20 @@ const TITLE_LIST = ref([
    'Какую смесь приготовить<br> для штукатурки глиной?',
 ]);
 
-const animTitleOverlay = ref(null);
-// const landSection = ref(null);
-// const landSection2 = ref(null);
+const MAIN = ref(null);
+const mainSection = ref(null);
+const featureSection = ref(null);
+const exampleSection = ref(null);
+const aboutSection = ref(null);
+const reviewSection = ref(null);
+const questionSection = ref(null);
 
 // СОБИРАЕМ ЭЛЕМЕНТЫ ДЛЯ АНИМАЦИИ
 let animTitleList = [];
+const animTitleOverlay = ref(null);
 
 const gsap = useGsap();
-
 const { width } = useWindowSize();
-// ГОЛУБОЙ ОВЕРЛЭЙ, ТОЧНЕЕ ЕГО ПАРАМЕТРЫ
 const OVERLAY_PARAMETERS = useElementSize(animTitleOverlay);
 
 const setAnimTitle = (item) => {
@@ -46,21 +52,110 @@ const setAnimTitle = (item) => {
 };
 
 onMounted(() => {
-   // gsap.from(landSection2.value, {
-   //    scrollTrigger: {
-   //       trigger: landSection.value,
-   //       start: `80% 30%`,
-   //       markers: true,
-   //       end: `85% 20%`,
-   //       scrub: 1,
-   //    },
-   //    x: '-5%',
-   //    opacity: 0,
-   //    scale: 0.3,
-   //    rotation: 25,
-   // });
+   gsap.from(mainSection.value, {
+      opacity: 0,
+      scale: 0.95,
+      duration: 1,
+      delay: 1,
+   });
 
-   // ЗДЕСЬ ФОРЫЧ СОБРАННЫХ ЭЛЕМЕНТОВ
+   gsap.from(featureSection.value, {
+      scrollTrigger: {
+         trigger: mainSection.value,
+         start: `80% 30%`,
+         markers: false,
+         end: `85% 20%`,
+         scrub: 1,
+      },
+      // x: '-5%',
+      opacity: 0,
+      scale: 0.95,
+      duration: 1,
+
+      // rotation: 2,
+   });
+
+   gsap.from(exampleSection.value, {
+      scrollTrigger: {
+         trigger: featureSection.value,
+         start: `80% 30%`,
+         markers: false,
+         end: `85% 20%`,
+         scrub: 1,
+      },
+      // x: '-5%',
+      opacity: 0,
+      scale: 0.95,
+      duration: 1,
+
+      // rotation: 2,
+   });
+
+   gsap.from(aboutSection.value, {
+      scrollTrigger: {
+         trigger: exampleSection.value,
+         start: `90% 30%`,
+         markers: false,
+         end: `95% 20%`,
+         scrub: 1,
+      },
+      // x: '-5%',
+      opacity: 0,
+      scale: 0.95,
+      duration: 1,
+
+      // rotation: 2,
+   });
+
+   gsap.from(reviewSection.value, {
+      scrollTrigger: {
+         trigger: aboutSection.value,
+         start: `80% 30%`,
+         markers: false,
+         end: `85% 20%`,
+         scrub: 1,
+      },
+      // x: '-5%',
+      opacity: 0,
+      scale: 0.95,
+      duration: 1,
+
+      // rotation: 2,
+   });
+
+   gsap.from(questionSection.value, {
+      scrollTrigger: {
+         trigger: reviewSection.value,
+         start: `80% 30%`,
+         markers: false,
+         end: `95% 20%`,
+         scrub: 1,
+      },
+      // x: '-5%',
+      opacity: 0,
+      scale: 0.95,
+      duration: 1,
+
+      // rotation: 2,
+   });
+
+   console.log(footerRef);
+   // не height.value / 2, а вся высота футера
+   // console.log(height.value / 2);
+   gsap.to(MAIN.value, {
+      scrollTrigger: {
+         trigger: FOOTER.value,
+         start: `0% 100%`,
+         markers: false,
+         end: `${FOOTER_HEIGHT} 80%`,
+         scrub: 1,
+      },
+      y: FOOTER_HEIGHT,
+      opacity: 0.8,
+      scale: 0.9,
+      duration: 1,
+   });
+
    animTitleList.forEach((item) => {
       const offsetY = OVERLAY_PARAMETERS.height.value + (item.offsetHeight + item.offsetWidth) * 2;
       // const index = item.dataset.itemIndex;
@@ -68,7 +163,6 @@ onMounted(() => {
       let duration = getRandom(6, 10);
       if (width < 480) duration = getRandom(9, 13);
 
-      // ЗАПУСК АНИМАЦИИ
       gsap.to(item, {
          y: offsetY,
          rotation: getRandom(-60, 60),
@@ -82,12 +176,12 @@ onMounted(() => {
 </script>
 
 <template>
-   <main>
+   <main ref="MAIN">
       <h1>МОДИФИКАТ - ПРОДАЖА СТРОИТЕЛЬНЫХ СМЕСЕЙ</h1>
 
       <!-- Первый блок -->
-      <div class="content-wrapper">
-         <section id="main" ref="landSection" class="land-section block_main-wrapper">
+      <div ref="mainSection" class="content-wrapper">
+         <section id="main" class="land-section block_main-wrapper">
             <div class="_block_rounded _block_grey block_main block_main-1 flex flex-col justify-between">
                <h2 class="caption-60">Продажа строительных смесей</h2>
                <p class="text-20 font-normal">Наши специалисты всегда готовы помочь вам выбрать наиболее подходящий продукт для вашего проекта.</p>
@@ -115,7 +209,7 @@ onMounted(() => {
       </div>
 
       <!-- Второй блок | Мы - лучшие -->
-      <div id="features" class="content-wrapper">
+      <div ref="featureSection" id="features" class="content-wrapper">
          <h2 class="caption-100">
             В этом <br />
             мы – <span class="highlight-gradient">лучшие</span>
@@ -257,25 +351,27 @@ onMounted(() => {
       </div>
 
       <!-- Третий блок | Примеры товаров -->
-      <div id="examples" class="content-wrapper">
-         <h2 class="caption-100">Примеры <br /><span class="highlight-gradient">продукции</span></h2>
+      <div ref="exampleSection">
+         <div id="examples" class="content-wrapper">
+            <h2 class="caption-100">Примеры <br /><span class="highlight-gradient">продукции</span></h2>
+         </div>
+         <section class="land-section block_products-wrapper flex flex-col">
+            <div class="product-list content-wrapper">
+               <productCard />
+               <productCard />
+               <productCard />
+               <productCard />
+               <productCard />
+               <productCard />
+            </div>
+            <div class="content-wrapper">
+               <aButtonLarge title="Заказать смесь" />
+            </div>
+         </section>
       </div>
-      <section class="land-section block_products-wrapper flex flex-col">
-         <div class="product-list content-wrapper">
-            <productCard />
-            <productCard />
-            <productCard />
-            <productCard />
-            <productCard />
-            <productCard />
-         </div>
-         <div class="content-wrapper">
-            <aButtonLarge title="Заказать смесь" />
-         </div>
-      </section>
 
       <!-- Четвертый блок | О нас -->
-      <div id="about" class="content-wrapper">
+      <div ref="aboutSection" id="about" class="content-wrapper">
          <h2 class="caption-100">
             Немного <br />
             о <span class="highlight-gradient">нас</span>
@@ -326,7 +422,7 @@ onMounted(() => {
       </div>
 
       <!-- Пятый блок | Отзывы -->
-      <div id="reviews" class="content-wrapper">
+      <div ref="reviewSection" id="reviews" class="content-wrapper">
          <h2 class="caption-100"><span class="highlight-gradient">Отзывы</span></h2>
          <section class="land-section block_review-wrapper flex flex-col">
             <div class="review-list">
@@ -342,7 +438,7 @@ onMounted(() => {
       </div>
 
       <!-- Шестой блок | Вопросы -->
-      <div class="content-wrapper">
+      <div ref="questionSection" class="content-wrapper">
          <section ref="animTitleOverlay" class="land-section _block_rounded _block_blue-gr-radiant block-questions_wrapper">
             <div class="block_questions">
                <Form>Засыпьте нас<br />вопросами</Form>

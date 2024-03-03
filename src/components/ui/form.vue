@@ -40,7 +40,16 @@ const submitForm = () => {
                <input class="norm-input text-16 text-blue" v-model="NAME" type="text" name="NAME" placeholder="Имя" />
             </div>
             <div class="form-prop form-prop-phone">
-               <input ref="el" class="norm-input text-16 text-blue" v-model="PHONE" type="tel" name="PHONE" required placeholder="Телефон*" />
+               <input
+                  ref="el"
+                  class="norm-input text-16 text-blue"
+                  v-model="PHONE"
+                  type="tel"
+                  name="PHONE"
+                  required
+                  minlength="18"
+                  placeholder="Телефон*"
+               />
             </div>
             <div class="form-prop form-prop-email">
                <input class="norm-input text-16 text-blue" v-model="EMAIL" type="email" name="EMAIL" placeholder="E-mail" />
