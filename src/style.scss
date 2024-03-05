@@ -627,9 +627,9 @@ button {
       line-height: 100%;
       color: var(--white);
 
-      // background-color: var(--blue);
+      background-color: var(--pink);
       border-radius: 20px;
-      border: 1px solid transparent;
+      // border: 1px solid transparent;
 
       transition: all 0.2s ease;
       overflow: hidden;
@@ -667,6 +667,15 @@ button {
 
       &:hover {
          letter-spacing: 5px;
+
+         &:before {
+            // opacity: 0;
+         }
+
+         p {
+            // letter-spacing: 5px;
+            // color: var(--blue);
+         }
       }
 
       &:active {
@@ -679,12 +688,23 @@ button {
 
       &_pink {
          color: var(--blue);
-         background-color: var(--pink);
+         background-color: var(--blue);
 
          &:before {
             background-image: url('./assets/pink-gr.png');
             animation: highlightGradientPink 8s ease-in-out infinite;
          }
+
+         // &:hover {
+         //    &:before {
+         //       opacity: 0;
+         //    }
+         
+         //    p {
+         //       letter-spacing: 0px;
+         //       color: var(--pink);
+         //    }
+         // }
       }
    }
 
@@ -855,6 +875,12 @@ button {
       color: inherit;
    }
 
+   // &:-internal-autofill-selected {
+   //    appearance: unset;
+   //    color: unset;
+   //    background-color: tomato !important;
+   // }
+
    @media (max-width: 1279px) {
       padding: 0 20px;
    }
@@ -947,4 +973,22 @@ textarea.norm-input {
    flex-direction: row;
    align-items: center;
    gap: 12px;
+}
+
+@keyframes animSvgStroke {
+   0% {
+      stroke-dashoffset: 1800;
+   }
+
+   25% {
+      stroke-dashoffset: 0;
+   }
+
+   75% {
+      stroke-dashoffset: 0;
+   }
+
+   100% {
+      stroke-dashoffset: 1800;
+   }
 }

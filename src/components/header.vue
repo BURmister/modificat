@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue';
+const props = defineProps(['PHONE']);
 </script>
 
 <template>
@@ -34,7 +34,7 @@ import { ref } from 'vue';
                </defs>
             </svg>
          </a>
-         <a class="phone highlight-gradient" href="tel:+7(926)073-23-73">+7 (926) 073-23-73</a>
+         <a class="phone highlight-gradient" :href="`tel:${PHONE}`" v-if="PHONE">{{ PHONE }}</a>
       </div>
    </header>
 </template>

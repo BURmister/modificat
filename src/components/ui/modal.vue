@@ -1,5 +1,5 @@
 <script setup>
-import { ref, defineProps } from 'vue';
+import { ref } from 'vue';
 import aButton from './aButton.vue';
 import aButtonLarge from './aButtonLarge.vue';
 
@@ -8,7 +8,7 @@ const modalShow = ref(false);
 
 const handleOpen = () => {
    modalShow.value = true;
-   document.documentElement.style.overflow = 'hidden';
+   // document.documentElement.style.overflow = 'hidden';
 };
 
 const handleClose = () => {
@@ -16,10 +16,6 @@ const handleClose = () => {
    document.documentElement.style.overflow = 'auto';
 };
 
-// переработать структуру:
-// -> отдельно aButton и aButtonLarge уже не нужны. Перенести код ссылок в один файл и переключать отобрадение по пропсу.
-// -> все кнопки в main и footer, отвечающие за открытие модалки поменять на этот компонент модалки. Добавить пропс для переключения отображения кнопки.
-// -> доделать success окно формы
 </script>
 
 <template>
@@ -51,7 +47,11 @@ const handleClose = () => {
 .modal {
    position: relative;
    padding: 30px;
+   height: fit-content;
+   overflow: hidden;
    z-index: 2;
+
+   transition: all 0.4s ease-in-out;
 
    &-close {
       position: absolute;
@@ -60,6 +60,7 @@ const handleClose = () => {
 
       padding: 15px;
       transition: all 0.2s ease-in-out;
+      z-index: 15;
 
       &:active {
          opacity: 0.8;
@@ -100,7 +101,7 @@ const handleClose = () => {
       transition: opacity 0.4s ease-in-out;
 
       .modal {
-         transition: transform 0.4s ease-in-out;
+         transition: height 0.4s ease-in-out, transform 0.4s ease-in-out;
       }
    }
 
@@ -125,7 +126,7 @@ const handleClose = () => {
    }
 
    @media (max-width: 479px) {
-      border-radius: 10px;
+      // border-radius: 10px;
    }
 }
 </style>

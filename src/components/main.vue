@@ -12,11 +12,11 @@ import productCard from './ui/product.vue';
 import reviewCard from './ui/review.vue';
 import Form from './ui/form.vue';
 import Modal from './ui/modal.vue';
+import ModalBuy from './ui/modal-buy.vue';
 
-import AnimA from '../assets/anim/anim-1.json';
+// import AnimA from '../assets/anim/anim-1.json';
 import AnimB from '../assets/anim/anim-2.json';
 import AnimC from '../assets/anim/anim-3.json';
-import AnimD from '../assets/anim/anim-4.json';
 
 const TITLE_LIST = ref([
    'Сколько стоит?',
@@ -28,6 +28,8 @@ const TITLE_LIST = ref([
    'Можно оптом?',
    'Какую смесь приготовить<br> для штукатурки глиной?',
 ]);
+
+const props = defineProps(['REVIEW_LIST', 'PRODUCT_LIST', 'OZON_LINK', 'YMARKET_LINK']);
 
 const mainSection = ref(null);
 const featureSection = ref(null);
@@ -53,15 +55,15 @@ onMounted(() => {
       opacity: 0,
       scale: 0.95,
       duration: 1,
-      delay: 1,
+      // delay: 1,
    });
 
    gsap.from(featureSection.value, {
       scrollTrigger: {
          trigger: mainSection.value,
-         start: `80% 30%`,
+         start: `80% 70%`,
          markers: false,
-         end: `85% 20%`,
+         end: `85% 60%`,
          // scrub: 1,
       },
       // x: '-5%',
@@ -75,9 +77,9 @@ onMounted(() => {
    gsap.from(exampleSection.value, {
       scrollTrigger: {
          trigger: featureSection.value,
-         start: `80% 30%`,
+         start: `80% 70%`,
          markers: false,
-         end: `85% 20%`,
+         end: `85% 60%`,
          // scrub: 1,
       },
       // x: '-5%',
@@ -91,9 +93,9 @@ onMounted(() => {
    gsap.from(aboutSection.value, {
       scrollTrigger: {
          trigger: exampleSection.value,
-         start: `90% 30%`,
+         start: `90% 70%`,
          markers: false,
-         end: `95% 20%`,
+         end: `95% 60%`,
          // scrub: 1,
       },
       // x: '-5%',
@@ -107,9 +109,9 @@ onMounted(() => {
    gsap.from(reviewSection.value, {
       scrollTrigger: {
          trigger: aboutSection.value,
-         start: `80% 30%`,
+         start: `80% 70%`,
          markers: false,
-         end: `85% 20%`,
+         end: `85% 60%`,
          // scrub: 1,
       },
       // x: '-5%',
@@ -123,9 +125,9 @@ onMounted(() => {
    gsap.from(questionSection.value, {
       scrollTrigger: {
          trigger: reviewSection.value,
-         start: `80% 30%`,
+         start: `80% 70%`,
          markers: false,
-         end: `95% 20%`,
+         end: `95% 60%`,
          // scrub: 1,
       },
       // x: '-5%',
@@ -170,18 +172,18 @@ onMounted(() => {
                <div class="_block_content flex">
                   <h2 class="caption-32">Мы есть на <span class="highlight">Ozon</span></h2>
                   <p class="text-20 text-blue font-semibold">Покупайте продукцию с удовольствием и выгодой на маркетплейсах!</p>
-                  <aButton href="https://github.com" />
+                  <aButton :href="OZON_LINK" />
                </div>
                <div class="json-animation">
                   <img class="json-animation_img" src="../assets/ozon-react.png" />
-                  <Vue3Lottie :animationData="AnimA" />
+                  <Vue3Lottie animation-link="https://co71945-bitrix-nvmby.tw1.ru/upload/json/anim-1.json" />
                </div>
             </div>
             <div class="block_main-container">
                <div class="_block_rounded _block_grey block_main block_main-2 flex flex-col justify-between">
                   <h2 class="caption-20nn text-blue">Консультация профессионалов</h2>
                   <p class="text-16nn font-normal">По подбору строительных смесей в зависимости от типа выполняемых работ и условий эксплуатации.</p>
-                  <Modal><Form checkId="12181">Консультация профессионалов</Form></Modal>
+                  <Modal><Form checkId="12181" canShowSuccess="true">Консультация профессионалов</Form></Modal>
                </div>
                <img src="./../assets/stroitelsha.png" class="_block_rounded block_main block_main-3" />
             </div>
@@ -233,12 +235,12 @@ onMounted(() => {
                      </svg>
                   </p>
                </div>
-               <aButton href="https://github.com" />
+               <aButton :href="OZON_LINK" />
             </div>
             <div class="_block_rounded _block_blue block_best block_best-4">
                <h2 class="caption-32 text-white">Индивидуальные решения</h2>
                <p class="text-20 text-white">Подберём смесь под ваш запрос.</p>
-               <Modal buttonWhiteStyle="true" buttonBottomStyle="true"><Form checkId="127351">Индивидуальные решения</Form></Modal>
+               <Modal buttonWhiteStyle="true" buttonBottomStyle="true"><Form checkId="127351" canShowSuccess="true">Индивидуальные решения</Form></Modal>
             </div>
             <div class="block_best-container">
                <div class="_block_rounded block_best block_best-5 _block_grey">
@@ -337,15 +339,10 @@ onMounted(() => {
          </div>
          <section class="land-section block_products-wrapper flex flex-col">
             <div class="product-list content-wrapper">
-               <productCard />
-               <productCard />
-               <productCard />
-               <productCard />
-               <productCard />
-               <productCard />
+               <productCard v-for="(product, index) in PRODUCT_LIST.data" :key="index" :product="product"/>
             </div>
             <div class="content-wrapper">
-               <Modal buttonLarge="true" buttonTitle="Заказать смесь"><Form checkId="19681">Заказать смесь</Form></Modal>
+               <Modal buttonLarge="true" buttonTitle="Заказать смесь"><ModalBuy :OZON_LINK="OZON_LINK" :YMARKET_LINK="YMARKET_LINK">Заказать смесь</ModalBuy></Modal>
             </div>
          </section>
       </div>
@@ -406,14 +403,9 @@ onMounted(() => {
          <h2 class="caption-100"><span class="highlight-gradient">Отзывы</span></h2>
          <section class="land-section block_review-wrapper flex flex-col">
             <div class="review-list">
-               <reviewCard />
-               <reviewCard />
-               <reviewCard />
-               <reviewCard />
-               <reviewCard />
-               <reviewCard />
+               <reviewCard v-for="(review, index) in REVIEW_LIST.data" :key="index" :review="review"/>
             </div>
-            <aButtonLarge href="https://github.com" title="Смотреть на Ozon" pinkStyle="true" />
+            <aButtonLarge :href="OZON_LINK" title="Смотреть на Ozon" pinkStyle="true" />
          </section>
       </div>
 
@@ -421,7 +413,7 @@ onMounted(() => {
       <div ref="questionSection" class="content-wrapper">
          <section ref="animTitleOverlay" class="land-section _block_rounded _block_blue-gr-radiant block-questions_wrapper">
             <div class="block_questions">
-               <Form checkId="13126">Засыпьте нас<br />вопросами</Form>
+               <Form checkId="13126" canShowSuccess="true">Засыпьте нас<br />вопросами</Form>
                <Vue3Lottie :animationData="AnimC" />
             </div>
             <div class="questions_overlay">

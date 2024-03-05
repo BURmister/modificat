@@ -1,13 +1,16 @@
-<script setup></script>
+<script setup>
+const props = defineProps(['product'])
+console.log(props.product)
+</script>
 
 <template>
-   <a href="/" class="card flex flex-col">
+   <a v-if="product" :href="product.PRODUCT_LINK" class="card flex flex-col">
       <div class="img-overlay _block_rounded">
-         <img src="../../assets/cement-1.png" />
+         <img :src="`https://${product.PRODUCT_IMG}`" />
       </div>
       <div class="name">
-         <h3 class="caption-20">V.O.R.</h3>
-         <p class="text-20">Кладочная смесь с трассом для лицевого кирпича</p>
+         <h3 class="caption-20">{{ product.PRODUCT_NAME }}</h3>
+         <p class="text-20">{{ product.DESCRIPTION }}</p>
       </div>
    </a>
 </template>

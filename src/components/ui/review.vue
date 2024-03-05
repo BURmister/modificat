@@ -1,7 +1,9 @@
-<script setup></script>
+<script setup>
+const prop = defineProps(['review']);
+</script>
 
 <template>
-   <div class="card _block_rounded">
+   <div v-if="review" class="card _block_rounded">
       <div class="card-user">
          <svg xmlns="http://www.w3.org/2000/svg" width="67" height="66" viewBox="0 0 67 66" fill="none">
             <circle cx="33.5" cy="33" r="33" fill="#F0C6FB" />
@@ -10,9 +12,9 @@
                fill="white"
             />
          </svg>
-         <p class="text-20 font-semibold">Лева Б.</p>
+         <p class="text-20 font-semibold">{{ review.NAME }}</p>
       </div>
-      <p class="text-20">Пришло быстро, упаковано очень хорошо, рекомендую.</p>
+      <p class="text-20">{{ review.TEXT_REV }}</p>
    </div>
 </template>
 

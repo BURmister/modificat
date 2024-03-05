@@ -2,6 +2,8 @@
 import { ref } from 'vue';
 import { useWindowSize } from '@vueuse/core';
 
+const props = defineProps(['PHONE']);
+
 const hidden = ref(true);
 const { width } = useWindowSize();
 
@@ -103,7 +105,7 @@ const clickOnLink = () => {
                   </clipPath>
                </defs>
             </svg>
-            <a class="phone highlight-gradient" href="tel:+7(926)073-23-73">+7 (926) 073-23-73</a>
+            <a class="phone highlight-gradient" :href="`tel:${PHONE}`" v-if="PHONE">{{ PHONE }}</a>
          </div>
          <ul class="burger-list">
             <li>

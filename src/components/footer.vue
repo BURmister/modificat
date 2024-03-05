@@ -1,99 +1,87 @@
 <script setup>
 import Modal from './ui/modal.vue';
 import Form from './ui/form.vue';
+
+const props = defineProps(['CONTACTS_DATA']);
 </script>
 
 <template>
    <footer id="contacts">
       <div class="content-wrapper flex flex-col">
-         <div class="footer-block footer-info_wrap">
+         <div class="footer-block footer-info_wrap" v-if="CONTACTS_DATA">
             <div class="footer-info">
                <div class="footer-info_contacts">
-                  <a href="tel:+7(926)073-23-73" class="text-46 text-white footer-link block">+7 (926) 073-23-73</a>
-                  <a href="mailto:modifikat@inbox.ru" class="text-46 text-white footer-link block">modifikat@inbox.ru</a>
+                  <a :href="`tel:${CONTACTS_DATA.data.PHONE_COMPANY}`" class="text-46 text-white footer-link block">{{ CONTACTS_DATA.data.PHONE_COMPANY }}</a>
+                  <a :href="`mailto:${CONTACTS_DATA.data.EMAIL_COMPANY}`" class="text-46 text-white footer-link block">{{ CONTACTS_DATA.data.EMAIL_COMPANY }}</a>
                </div>
                <div class="footer-info_requisites">
                   <div class="requisites-wrap">
                      <ul class="requisites-1">
                         <li>
                            <h4 class="text-16 text-white font-bold">ИНН:</h4>
-                           <p class="text-16 text-white">5034066048</p>
+                           <p class="text-16 text-white">{{ CONTACTS_DATA.data.INN_COMPANY }}</p>
                         </li>
                         <li>
                            <h4 class="text-16 text-white font-bold">КПП:</h4>
-                           <p class="text-16 text-white">503401001</p>
+                           <p class="text-16 text-white">{{ CONTACTS_DATA.data.KPP_COMPANY }}</p>
                         </li>
                         <li>
                            <h4 class="text-16 text-white font-bold">ОГРН:</h4>
-                           <p class="text-16 text-white">1235000109244</p>
+                           <p class="text-16 text-white">{{ CONTACTS_DATA.data.OGR_COMPANY }}</p>
                         </li>
                         <li>
                            <h4 class="text-16 text-white font-bold">ОКПО:</h4>
-                           <p class="text-16 text-white">49728606</p>
+                           <p class="text-16 text-white">{{ CONTACTS_DATA.data.OKPO_COMPANY }}</p>
                         </li>
                         <li>
                            <h4 class="text-16 text-white font-bold">Расчетный счет №:</h4>
-                           <p class="text-16 text-white">40702810440000018316</p>
+                           <p class="text-16 text-white">{{ CONTACTS_DATA.data.RAS_SCHET_COMPANY }}</p>
                         </li>
                      </ul>
                      <ul class="requisites-2">
                         <li>
                            <h4 class="text-16 text-white font-bold">Банк:</h4>
-                           <p class="text-16 text-white">ПАО СБЕРБАНК</p>
+                           <p class="text-16 text-white">{{ CONTACTS_DATA.data.BANK_COMPANY }}</p>
                         </li>
                         <li>
                            <h4 class="text-16 text-white font-bold">Корсчет банка №:</h4>
-                           <p class="text-16 text-white">30101810400000000225</p>
+                           <p class="text-16 text-white">{{ CONTACTS_DATA.data.COR_SCHET_COMPANY }}</p>
                         </li>
                         <li>
                            <h4 class="text-16 text-white font-bold">БИК:</h4>
-                           <p class="text-16 text-white">044525225</p>
+                           <p class="text-16 text-white">{{ CONTACTS_DATA.data.BIK_COMPANY }}</p>
                         </li>
                         <li>
                            <h4 class="text-16 text-white font-bold">Генеральный директор:</h4>
-                           <p class="text-16 text-white">Шишов Юрий Викторович</p>
+                           <p class="text-16 text-white">{{ CONTACTS_DATA.data.GEN_DIR_COMPANY }}</p>
                         </li>
                         <li>
                            <h4 class="text-16 text-white font-bold">Телефон организации:</h4>
-                           <p class="text-16 text-white">+7 (917) 517-87-13</p>
+                           <a :href="`tel:${CONTACTS_DATA.data.PHONE_ORG_COMPANY}`" class="text-16 text-white">{{ CONTACTS_DATA.data.PHONE_ORG_COMPANY }}</a>
                         </li>
                      </ul>
                   </div>
                   <ul class="requisites-3">
                      <li>
                         <h4 class="text-16 text-white font-bold">ОКВЭД:</h4>
-                        <p class="text-16 text-white">
-                           46.73 Торговля оптовая лесоматериалами, строительными материалами и санитарно-техническим оборудованием
-                        </p>
+                        <p class="text-16 text-white">{{ CONTACTS_DATA.data.OKWED_COMPANY }}</p>
                      </li>
                      <li>
                         <h4 class="text-16 text-white font-bold">Юридический и почтовый адрес организации:</h4>
-                        <p class="text-16 text-white">142608. Московская область, г. Орехово-Зуево, Малодубенское шоссе д.3</p>
+                        <p class="text-16 text-white">{{ CONTACTS_DATA.data.UR_ADDRESS_COMPANY }}</p>
                      </li>
                   </ul>
                </div>
             </div>
             <div class="footer-map">
                <div class="footer-map-wrap">
-                  <iframe
-                     src="https://yandex.ru/map-widget/v1/org/modifikat/74428691836/?ll=38.964048%2C55.824086&z=16"
-                     width="100%"
-                     height="100%"
-                     frameborder="1"
-                     allowfullscreen="true"
-                     style="position: relative"
-                  ></iframe>
+                  <iframe src="https://yandex.ru/map-widget/v1/org/modifikat/74428691836/?ll=38.964048%2C55.824086&z=16" width="100%" height="100%" frameborder="1" allowfullscreen="true" style="position: relative"></iframe>
                </div>
-               <a
-                  class="text-46nn text-white footer-link"
-                  href="https://yandex.ru/maps/org/modifikat/74428691836/?utm_medium=mapframe&utm_source=maps"
-               >
-                  Московская область, г. Орехово-Зуево, Малодубенское шоссе д. 3
-               </a>
+               <a class="text-46nn text-white footer-link" :href="CONTACTS_DATA.data.ADDRESS_YAMAP_LICK">{{ CONTACTS_DATA.data.ADDRESS_MAP_COMPANY }}</a>
             </div>
          </div>
          <div class="footer-block">
-            <Modal buttonLarge="true" buttonTitle="Получить консультацию" buttonPinkStyle="true"><Form checkId="1333481">Получить консультацию</Form></Modal>
+            <Modal buttonLarge="true" buttonTitle="Получить консультацию" buttonPinkStyle="true"><Form checkId="1333481" canShowSuccess="true">Получить консультацию</Form></Modal>
          </div>
          <div class="footer-block footer-copy_wrap">
             <div class="footer-copy">
@@ -130,14 +118,8 @@ import Form from './ui/form.vue';
                         d="M104.598 17.0108V21.3914H102.055V8.93457H106.346C107.591 8.93457 108.584 9.31663 109.325 10.0808C110.067 10.8449 110.437 11.8374 110.437 13.0583C110.437 14.2792 110.071 15.2432 109.338 15.9502C108.605 16.6572 107.591 17.0108 106.294 17.0108H104.598H104.598ZM104.598 14.9149H106.345C106.829 14.9149 107.204 14.7579 107.47 14.4446C107.734 14.1314 107.868 13.6746 107.868 13.0759C107.868 12.4772 107.732 11.9592 107.461 11.5914C107.19 11.2236 106.827 11.0372 106.371 11.0313H104.598V14.9157V14.9149Z"
                         fill="white"
                      />
-                     <path
-                        d="M116.603 18.8421H113.135L112.46 21.3914H109.769L113.705 8.93457H116.032L119.993 21.3914H117.277L116.603 18.8421H116.603ZM113.688 16.7462H116.041L114.864 12.3059L113.687 16.7462H113.688Z"
-                        fill="white"
-                     />
-                     <path
-                        d="M124.838 16.3096H123.731V21.3914H121.189V8.93457H123.731V13.914H124.588L126.777 8.93457H129.874L126.794 14.7352L130.22 21.3914H127.193L124.84 16.3096H124.838Z"
-                        fill="white"
-                     />
+                     <path d="M116.603 18.8421H113.135L112.46 21.3914H109.769L113.705 8.93457H116.032L119.993 21.3914H117.277L116.603 18.8421H116.603ZM113.688 16.7462H116.041L114.864 12.3059L113.687 16.7462H113.688Z" fill="white" />
+                     <path d="M124.838 16.3096H123.731V21.3914H121.189V8.93457H123.731V13.914H124.588L126.777 8.93457H129.874L126.794 14.7352L130.22 21.3914H127.193L124.84 16.3096H124.838Z" fill="white" />
                      <path
                         d="M139.759 16.2831C139.759 17.9541 139.36 19.2515 138.561 20.176C137.762 21.0996 136.653 21.5623 135.235 21.5623C133.816 21.5623 132.712 21.1047 131.904 20.1894C131.097 19.2741 130.688 17.9919 130.676 16.3436V14.2133C130.676 12.502 131.076 11.166 131.878 10.2054C132.679 9.24482 133.792 8.76367 135.217 8.76367C136.641 8.76367 137.722 9.23558 138.529 10.1794C139.337 11.1232 139.746 12.4483 139.758 14.1537V16.284L139.759 16.2831ZM137.207 14.1957C137.207 13.0721 137.046 12.2366 136.722 11.6892C136.399 11.1417 135.898 10.8679 135.217 10.8679C134.536 10.8679 134.044 11.1316 133.72 11.6589C133.398 12.1863 133.23 12.989 133.218 14.0672V16.2831C133.218 17.3722 133.383 18.175 133.712 18.6914C134.04 19.2078 134.548 19.4656 135.234 19.4656C135.92 19.4656 136.39 19.2137 136.713 18.7082C137.035 18.2035 137.2 17.4209 137.206 16.3595V14.1948L137.207 14.1957Z"
                         fill="white"
@@ -146,18 +128,12 @@ import Form from './ui/form.vue';
                         d="M141.584 21.3914V8.93457H145.477C146.792 8.93457 147.79 9.22426 148.473 9.80281C149.157 10.3814 149.498 11.2303 149.498 12.3479C149.498 12.9811 149.356 13.526 149.074 13.982C148.792 14.4388 148.405 14.7721 147.916 14.9829C148.481 15.1424 148.916 15.4632 149.221 15.9452C149.527 16.4272 149.68 17.0217 149.68 17.7287C149.68 18.9379 149.344 19.8506 148.672 20.4661C148.001 21.0824 147.027 21.3898 145.752 21.3898H141.583L141.584 21.3914ZM144.127 14.1449H145.45C146.448 14.1449 146.947 13.6343 146.947 12.6133C146.947 12.049 146.832 11.6434 146.601 11.3982C146.37 11.153 145.995 11.0304 145.476 11.0304H144.127V14.1449ZM144.127 15.9754V19.3031H145.753C146.209 19.3031 146.555 19.1637 146.792 18.8841C147.028 18.6045 147.146 18.2082 147.146 17.6951C147.146 16.5775 146.737 16.004 145.918 15.9754H144.128H144.127Z"
                         fill="white"
                      />
-                     <path
-                        d="M157.534 18.8421H154.065L153.391 21.3914H150.7L154.636 8.93457H156.963L160.924 21.3914H158.208L157.533 18.8421H157.534ZM154.619 16.7462H156.971L155.795 12.3059L154.618 16.7462H154.619Z"
-                        fill="white"
-                     />
+                     <path d="M157.534 18.8421H154.065L153.391 21.3914H150.7L154.636 8.93457H156.963L160.924 21.3914H158.208L157.533 18.8421H157.534ZM154.619 16.7462H156.971L155.795 12.3059L154.618 16.7462H154.619Z" fill="white" />
                      <path
                         d="M6.20052 5.62816C6.20052 5.62816 7.95616 6.99686 8.5776 10.4354C9.19904 13.874 3.62732 17.9171 3.62732 17.9171C3.62732 17.9171 5.16988 15.8204 4.01954 13.7153C2.8692 11.6101 0.611824 7.8777 0.684834 6.56525C0.757845 5.25281 1.82414 2.93945 1.82414 2.93945L6.27353 3.23167L6.19967 5.62816H6.20052Z"
                         fill="url(#paint0_linear_258_1529)"
                      />
-                     <path
-                        d="M21.9165 14.7764C21.9165 14.7764 13.8293 22.3907 5.86015 24.3279C-2.10902 26.2651 8.188 30.0177 8.188 30.0177C8.188 30.0177 18.9834 26.3742 24.398 20.5148C29.8127 14.6555 21.9165 14.7772 21.9165 14.7772V14.7764Z"
-                        fill="url(#paint1_linear_258_1529)"
-                     />
+                     <path d="M21.9165 14.7764C21.9165 14.7764 13.8293 22.3907 5.86015 24.3279C-2.10902 26.2651 8.188 30.0177 8.188 30.0177C8.188 30.0177 18.9834 26.3742 24.398 20.5148C29.8127 14.6555 21.9165 14.7772 21.9165 14.7772V14.7764Z" fill="url(#paint1_linear_258_1529)" />
                      <path
                         d="M0.993073 7.95804C0.993073 7.95804 0.0430887 3.89475 4.16308 5.15682C8.28223 6.41888 21.5387 12.4403 23.7766 18.6549C23.7766 18.6549 24.2265 20.3385 23.4675 21.4511C23.4675 21.4511 29.6081 17.6506 27.5273 13.4648C25.4473 9.27888 11.1322 0.188342 7.14717 0.00948716C3.16216 -0.170208 -1.73887 2.19269 0.993073 7.95804Z"
                         fill="url(#paint2_linear_258_1529)"
@@ -167,14 +143,7 @@ import Form from './ui/form.vue';
                         fill="url(#paint3_linear_258_1529)"
                      />
                      <defs>
-                        <linearGradient
-                           id="paint0_linear_258_1529"
-                           x1="0.297325"
-                           y1="10.0725"
-                           x2="8.64851"
-                           y2="10.9942"
-                           gradientUnits="userSpaceOnUse"
-                        >
+                        <linearGradient id="paint0_linear_258_1529" x1="0.297325" y1="10.0725" x2="8.64851" y2="10.9942" gradientUnits="userSpaceOnUse">
                            <stop stop-color="#4395D1" />
                            <stop offset="1" stop-color="#2B2E6F" />
                         </linearGradient>
@@ -182,14 +151,7 @@ import Form from './ui/form.vue';
                            <stop stop-color="#4395D1" />
                            <stop offset="1" stop-color="#2B2E6F" />
                         </linearGradient>
-                        <linearGradient
-                           id="paint2_linear_258_1529"
-                           x1="-0.285027"
-                           y1="9.043"
-                           x2="28.3214"
-                           y2="12.2003"
-                           gradientUnits="userSpaceOnUse"
-                        >
+                        <linearGradient id="paint2_linear_258_1529" x1="-0.285027" y1="9.043" x2="28.3214" y2="12.2003" gradientUnits="userSpaceOnUse">
                            <stop stop-color="#AA173B" />
                            <stop offset="0.58" stop-color="#E42918" />
                            <stop offset="1" stop-color="#E42918" />
