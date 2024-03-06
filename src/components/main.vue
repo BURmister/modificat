@@ -413,7 +413,7 @@ onMounted(() => {
       <div ref="questionSection" class="content-wrapper">
          <section ref="animTitleOverlay" class="land-section _block_rounded _block_blue-gr-radiant block-questions_wrapper">
             <div class="block_questions">
-               <Form checkId="13126" canShowSuccess="true">Засыпьте нас<br />вопросами</Form>
+               <Form checkId="13126" canShowSuccess="false">Засыпьте нас<br />вопросами</Form>
                <Vue3Lottie :animationData="AnimC" />
             </div>
             <div class="questions_overlay">
@@ -491,6 +491,7 @@ onMounted(() => {
             margin: unset;
             width: auto;
             height: 431px;
+            width: 308px;
             transform: translateX(-15px);
             z-index: 1;
          }
@@ -515,6 +516,7 @@ onMounted(() => {
 
             .lottie-animation-container {
                height: 296px;
+               width: 212px;
                transform: translateX(-15px);
             }
          }
@@ -548,6 +550,7 @@ onMounted(() => {
             }
 
             .lottie-animation-container {
+               width: 165px;
                height: 230px;
             }
          }
@@ -646,6 +649,7 @@ onMounted(() => {
 
             .lottie-animation-container {
                height: 200px;
+               width: 143px;
             }
          }
       }

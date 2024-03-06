@@ -2,9 +2,13 @@
 import { ref } from 'vue';
 import { useIMask } from 'vue-imask';
 import { Vue3Lottie } from 'vue3-lottie';
-import { getData } from '../../hooks/useAxios.js';
+import { getData, postData } from '../../hooks/useAxios.js';
 
 import AnimD from '../../assets/anim/anim-4.json';
+
+const SERVER_PROTOCOL = import.meta.env.VITE_SERVER_PROTOCOL;
+const SERVER_DOMAIN = import.meta.env.VITE_SERVER_DOMAIN;
+
 
 const props = defineProps(['title', 'checkId', 'canShowSuccess']);
 const notSubmit = ref(true);
@@ -16,19 +20,27 @@ const QUESTION = ref('');
 
 const { el } = useIMask({ mask: '{+7 (9}00{) }000{-}00{-}00' });
 
-const submitForm = () => {
-   // console.log({
-   //    NAME: NAME.value,
-   //    PHONE: PHONE.value,
-   //    EMAIL: EMAIL.value,
-   //    QUESTION: QUESTION.value
-   // })
+
+const submitForm = async () => {
+   console.log({
+      NAME: NAME.value,
+      PHONE: PHONE.value,
+      EMAIL: EMAIL.value,
+      TEXT: QUESTION.value
+   })
 
    try {
-      const data = getData('http://co71945-bitrix-nvmby.tw1.ru/Basket/test');
-      console.log(data);
+      const data = await postData(SERVER_PROTOCOL + SERVER_DOMAIN + "/ajax/send_form.php", {
+         NAME: NAME.value,
+         PHONE: PHONE.value,
+         EMAIL: EMAIL.value,
+         TEXT: QUESTION.value
+      });
 
-      if (props.canShowSuccess === true) setTimeout(() => notSubmit.value = false, 2000);
+      console.log(data);
+      if (data.status) {
+         if (props.canShowSuccess === 'true') setTimeout(() => notSubmit.value = false, 2000);
+      }
    } catch (error) {
       console.error(error);
    } finally {
@@ -54,6 +66,7 @@ const submitForm = () => {
                      name="PHONE"
                      required
                      minlength="18"
+                     maxlength="18"
                      placeholder="Телефон*"
                   />
                </div>

@@ -77,7 +77,7 @@ const props = defineProps(['CONTACTS_DATA']);
                <div class="footer-map-wrap">
                   <iframe src="https://yandex.ru/map-widget/v1/org/modifikat/74428691836/?ll=38.964048%2C55.824086&z=16" width="100%" height="100%" frameborder="1" allowfullscreen="true" style="position: relative"></iframe>
                </div>
-               <a class="text-46nn text-white footer-link" :href="CONTACTS_DATA.data.ADDRESS_YAMAP_LICK">{{ CONTACTS_DATA.data.ADDRESS_MAP_COMPANY }}</a>
+               <a class="text-46nn text-white footer-link" :href="CONTACTS_DATA.data.ADDRESS_YAMAP_LINK">{{ CONTACTS_DATA.data.ADDRESS_MAP_COMPANY }}</a>
             </div>
          </div>
          <div class="footer-block">

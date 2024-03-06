@@ -10,11 +10,15 @@ import Header from './components/header.vue';
 import Main from './components/main.vue';
 import Footer from './components/footer.vue';
 
+const SERVER_PROTOCOL = import.meta.env.VITE_SERVER_PROTOCOL;
+const SERVER_DOMAIN = import.meta.env.VITE_SERVER_DOMAIN;
+const API_PREFIX = import.meta.env.VITE_API_PREFIX;
+
+
 const FOOTER = ref(null);
 const FOOTER_PARAMETERS = useElementSize(FOOTER);
 
 const gsap = useGsap();
-
 
 // КОНТАКТНЫЕ ДАННЫЕ
 const CONTACTS_DATA = ref({
@@ -34,7 +38,8 @@ const CONTACTS_DATA = ref({
       GEN_DIR_COMPANY: "Шишов Юрий Викторович ",
       PHONE_ORG_COMPANY: "+7 (917) 517-87-13",
       OKWED_COMPANY: "46.73 Торговля оптовая лесоматериалами, строительными материалами и санитарно-техническим оборудованием",
-      UR_ADDRESS_COMPANY: "142608. Московская область, г. Орехово-Зуево, Малодубенское шоссе д.3"
+      UR_ADDRESS_COMPANY: "142608. Московская область, г. Орехово-Зуево, Малодубенское шоссе д.3",
+      ADDRESS_YAMAP_LINK: "https://yandex.ru/maps/-/CDQfVGph"
    },
    status: "ok"
 });
@@ -63,16 +68,16 @@ onMounted(async () => {
    // });
    
    try {
-      const contactsData = await getData('https://co71945-bitrix-nvmby.tw1.ru/Api/v1/company/info');
+      const contactsData = await getData(SERVER_PROTOCOL + SERVER_DOMAIN + API_PREFIX + "company/info");
       CONTACTS_DATA.value = contactsData;
       PHONE.value = contactsData.data.PHONE_COMPANY;
       OZON_LINK.value = contactsData.data.OZON_LINK;
       YMARKET_LINK.value = contactsData.data.YA_MARKET_LINK;
 
-      const reviewsData = await getData('https://co71945-bitrix-nvmby.tw1.ru/Api/v1/company/reviews');
+      const reviewsData = await getData(SERVER_PROTOCOL + SERVER_DOMAIN + API_PREFIX + "company/reviews");
       REVIEW_LIST.value = reviewsData;
 
-      const productsData = await getData('https://co71945-bitrix-nvmby.tw1.ru/Api/v1/catalog/getItems');
+      const productsData = await getData(SERVER_PROTOCOL + SERVER_DOMAIN + API_PREFIX + "catalog/getItems");
       PRODUCT_LIST.value = productsData;
    } catch (error) {
       console.error(error);
