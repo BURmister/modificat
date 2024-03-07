@@ -1,19 +1,22 @@
 <script setup>
 import { ref } from 'vue';
-import { useWindowSize } from '@vueuse/core';
+import { useWindowSize, onClickOutside } from '@vueuse/core';
 
 const props = defineProps(['PHONE']);
 
+const burger = ref(null)
 const hidden = ref(true);
 const { width } = useWindowSize();
 
 const clickOnLink = () => {
    if (width.value < 1024) hidden.value = true;
-};
+}
+
+onClickOutside(burger, () => hidden.value = true);
 </script>
 
 <template>
-   <section id="burger" class="burger">
+   <section id="burger" ref="burger" class="burger">
       <div class="burger-line"></div>
       <div class="burger-toggle-wrapper">
          <svg class="burger-toggle-left" xmlns="http://www.w3.org/2000/svg" width="29" height="18" viewBox="0 0 29 18" fill="none">

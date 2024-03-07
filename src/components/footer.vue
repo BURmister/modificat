@@ -81,7 +81,7 @@ const props = defineProps(['CONTACTS_DATA']);
             </div>
          </div>
          <div class="footer-block">
-            <Modal buttonLarge="true" buttonTitle="Получить консультацию" buttonPinkStyle="true"><Form checkId="1333481" canShowSuccess="true">Получить консультацию</Form></Modal>
+            <Modal buttonLarge="true" buttonTitle="Получить консультацию" buttonPinkStyle="true" :showOpenButton="true"><Form checkId="1333481" canShowSuccess="true">Получить консультацию</Form></Modal>
          </div>
          <div class="footer-block footer-copy_wrap">
             <div class="footer-copy">

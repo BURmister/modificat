@@ -1,9 +1,9 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 import aButton from './aButton.vue';
 import aButtonLarge from './aButtonLarge.vue';
 
-const props = defineProps(['modalShow', 'buttonTitle', 'buttonLarge', 'buttonPinkStyle', 'buttonWhiteStyle', 'buttonBottomStyle']);
+const props = defineProps(['modalShow', 'buttonTitle', 'buttonLarge', 'buttonPinkStyle', 'buttonWhiteStyle', 'buttonBottomStyle', 'showOpenButton', 'defaultOpen']);
 const modalShow = ref(false);
 
 const handleOpen = () => {
@@ -16,12 +16,18 @@ const handleClose = () => {
    document.documentElement.style.overflow = 'auto';
 };
 
+onMounted(() => {
+   if (props.defaultOpen) handleOpen();
+});
+
 </script>
 
 <template>
    <div>
-      <aButtonLarge v-if="buttonLarge" :title="buttonTitle" :pinkStyle="buttonPinkStyle" @handleClick="handleOpen" />
-      <aButton v-else :whiteStyle="buttonWhiteStyle" :bottomStyle="buttonBottomStyle" @handleClick="handleOpen" />
+      <div v-if="showOpenButton">
+         <aButtonLarge v-if="buttonLarge" :title="buttonTitle" :pinkStyle="buttonPinkStyle" @handleClick="handleOpen" />
+         <aButton v-else :whiteStyle="buttonWhiteStyle" :bottomStyle="buttonBottomStyle" @handleClick="handleOpen" />
+      </div>
       <teleport to="body">
          <Transition name="modal">
             <div v-if="modalShow" class="modal-wrapper">

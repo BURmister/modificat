@@ -183,7 +183,7 @@ onMounted(() => {
                <div class="_block_rounded _block_grey block_main block_main-2 flex flex-col justify-between">
                   <h2 class="caption-20nn text-blue">Консультация профессионалов</h2>
                   <p class="text-16nn font-normal">По подбору строительных смесей в зависимости от типа выполняемых работ и условий эксплуатации.</p>
-                  <Modal><Form checkId="12181" canShowSuccess="true">Консультация профессионалов</Form></Modal>
+                  <Modal :showOpenButton="true"><Form checkId="12181" canShowSuccess="true">Консультация профессионалов</Form></Modal>
                </div>
                <img src="./../assets/stroitelsha.png" class="_block_rounded block_main block_main-3" />
             </div>
@@ -240,7 +240,7 @@ onMounted(() => {
             <div class="_block_rounded _block_blue block_best block_best-4">
                <h2 class="caption-32 text-white">Индивидуальные решения</h2>
                <p class="text-20 text-white">Подберём смесь под ваш запрос.</p>
-               <Modal buttonWhiteStyle="true" buttonBottomStyle="true"><Form checkId="127351" canShowSuccess="true">Индивидуальные решения</Form></Modal>
+               <Modal buttonWhiteStyle="true" buttonBottomStyle="true" :showOpenButton="true"><Form checkId="127351" canShowSuccess="true">Индивидуальные решения</Form></Modal>
             </div>
             <div class="block_best-container">
                <div class="_block_rounded block_best block_best-5 _block_grey">
@@ -342,7 +342,7 @@ onMounted(() => {
                <productCard v-for="(product, index) in PRODUCT_LIST.data" :key="index" :product="product"/>
             </div>
             <div class="content-wrapper">
-               <Modal buttonLarge="true" buttonTitle="Заказать смесь"><ModalBuy :OZON_LINK="OZON_LINK" :YMARKET_LINK="YMARKET_LINK">Заказать смесь</ModalBuy></Modal>
+               <Modal buttonLarge="true" buttonTitle="Заказать смесь" :showOpenButton="true"><ModalBuy :OZON_LINK="OZON_LINK" :YMARKET_LINK="YMARKET_LINK">Заказать смесь</ModalBuy></Modal>
             </div>
          </section>
       </div>
@@ -413,7 +413,7 @@ onMounted(() => {
       <div ref="questionSection" class="content-wrapper">
          <section ref="animTitleOverlay" class="land-section _block_rounded _block_blue-gr-radiant block-questions_wrapper">
             <div class="block_questions">
-               <Form checkId="13126" canShowSuccess="false">Засыпьте нас<br />вопросами</Form>
+               <Form checkId="13126" :successBlank="true">Засыпьте нас<br />вопросами</Form>
                <Vue3Lottie :animationData="AnimC" />
             </div>
             <div class="questions_overlay">

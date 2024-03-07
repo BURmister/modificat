@@ -1,6 +1,7 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import { useElementSize } from '@vueuse/core';
+import { useRecaptchaProvider } from 'vue-recaptcha/head';
 
 import { useGsap } from '/src/hooks/useGsap.js';
 import { getData } from './hooks/useAxios';
@@ -84,6 +85,7 @@ onMounted(async () => {
    } finally {}
 });
 
+useRecaptchaProvider()
 </script>
 
 <template>

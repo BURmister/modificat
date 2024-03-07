@@ -440,7 +440,7 @@ button {
 .phone {
    font-family: 'druk';
    font-size: 32px;
-   font-weight: 500;
+   font-weight: 400;
    line-height: 38px;
 
    transition: all 0.2s ease-in-out;
@@ -756,6 +756,10 @@ button {
       &_large {
          height: 50px;
          font-size: 16px;
+
+         &:hover {
+            letter-spacing: 0;
+         }
       }
    }
 }
@@ -990,4 +994,9 @@ textarea.norm-input {
    100% {
       stroke-dashoffset: 1800;
    }
+}
+
+
+.grecaptcha-badge {
+   z-index: 23;
 }
