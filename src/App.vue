@@ -47,6 +47,7 @@ const CONTACTS_DATA = ref({
 const PHONE = ref('');
 const OZON_LINK = ref('');
 const YMARKET_LINK = ref('');
+const WB_LINK = ref('');
 
 const REVIEW_LIST = ref([]);
 const PRODUCT_LIST = ref([]);
@@ -74,6 +75,7 @@ onMounted(async () => {
       PHONE.value = contactsData.data.PHONE_COMPANY;
       OZON_LINK.value = contactsData.data.OZON_LINK;
       YMARKET_LINK.value = contactsData.data.YA_MARKET_LINK;
+      WB_LINK.value = contactsData.data.WB_LINK;
 
       const reviewsData = await getData(SERVER_PROTOCOL + SERVER_DOMAIN + API_PREFIX + "company/reviews");
       REVIEW_LIST.value = reviewsData;
@@ -92,7 +94,7 @@ useRecaptchaProvider()
    <div class="page-wrapper">
       <Burger :PHONE="PHONE"/>
       <Header :PHONE="PHONE"/>
-      <Main :REVIEW_LIST="REVIEW_LIST" :PRODUCT_LIST="PRODUCT_LIST" :OZON_LINK="OZON_LINK" :YMARKET_LINK="YMARKET_LINK"/>
+      <Main :REVIEW_LIST="REVIEW_LIST" :PRODUCT_LIST="PRODUCT_LIST" :OZON_LINK="OZON_LINK" :YMARKET_LINK="YMARKET_LINK" :WB_LINK="WB_LINK"/>
       <Footer ref="FOOTER" :CONTACTS_DATA="CONTACTS_DATA" />
    </div>
 </template>

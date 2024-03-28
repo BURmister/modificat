@@ -13,6 +13,7 @@
     "axios": "^1.6.7",
     "gsap": "^3.12.5",
     "scss": "^0.2.4",
+    "vite-plugin-vue-devtools": "^7.0.17",
     "vue": "^3.4.15",
     "vue-imask": "^7.5.0",
     "vue-recaptcha": "^3.0.0-alpha.2",

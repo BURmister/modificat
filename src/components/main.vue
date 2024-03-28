@@ -29,7 +29,7 @@ const TITLE_LIST = ref([
    'Какую смесь приготовить<br> для штукатурки глиной?',
 ]);
 
-const props = defineProps(['REVIEW_LIST', 'PRODUCT_LIST', 'OZON_LINK', 'YMARKET_LINK']);
+const props = defineProps(['REVIEW_LIST', 'PRODUCT_LIST', 'OZON_LINK', 'YMARKET_LINK', 'WB_LINK']);
 
 const mainSection = ref(null);
 const featureSection = ref(null);
@@ -242,55 +242,29 @@ onMounted(() => {
                <p class="text-20 text-white">Подберём смесь под ваш запрос.</p>
                <Modal buttonWhiteStyle="true" buttonBottomStyle="true" :showOpenButton="true"><Form checkId="127351" canShowSuccess="true">Индивидуальные решения</Form></Modal>
             </div>
-            <div class="block_best-container">
-               <div class="_block_rounded block_best block_best-5 _block_grey">
+            <div class="_block_rounded block_best block_best-5 _block_ymarket">
+               <div class="flex caption-wrap">
                   <h2 class="caption-32">Мы есть на Яндекс Маркете</h2>
-                  <img class="ymarket-logo" src="../assets/ymarket-logo.png" width="119" height="118" />
-                  <!-- <svg class="coin-vector" xmlns="http://www.w3.org/2000/svg" width="119" height="118" viewBox="0 0 119 118" fill="none">
-                     <circle cx="59.5" cy="59" r="58.5" stroke="#172026" />
-                     <g clip-path="url(#clip0_258_1266)">
-                        <path
-                           d="M102.5 59C102.5 82.7483 83.2483 102 59.5 102C46.9809 102 35.7113 96.6504 27.8538 88.1119C25.7836 85.8631 23.958 83.401 22.4077 80.7668C18.6535 74.3817 16.5 66.9418 16.5 59C16.5 35.2517 35.7517 16 59.5 16C67.4436 16 74.8835 18.1535 81.2668 21.9094C83.9012 23.4586 86.3629 25.2843 88.6101 27.3555C97.1487 35.2096 102.5 46.4809 102.5 59Z"
-                           fill="#F0CD00"
-                        />
-                        <path d="M102.5 59.0004C102.5 82.2134 84.1084 101.13 61.1008 101.971C38.0931 101.13 19.7014 82.2134 19.7014 59.0004C19.7014 35.7875 38.0931 16.871 61.1008 16.0303C84.1084 16.871 102.5 35.7875 102.5 59.0004Z" fill="#FFDE50" />
-                        <path
-                           d="M88.6102 27.3553L27.8538 88.1116C25.7836 85.8629 23.958 83.4007 22.4077 80.7665L81.2668 21.9092C83.9012 23.4583 86.3629 25.284 88.6102 27.3553ZM99.5339 43.2793L43.7778 99.0354C39.862 97.495 36.1938 95.3874 32.8909 92.7802L93.2805 32.3906C95.8882 35.6936 97.9952 39.3625 99.5339 43.2793Z"
-                           fill="#FFEA94"
-                        />
-                        <path
-                           d="M92.9137 58.9996C92.9137 77.4527 77.9532 92.4132 59.5001 92.4132C53.0729 92.4132 47.0704 90.5984 41.9754 87.4533C39.7605 86.0864 37.7126 84.466 35.8729 82.625C34.5204 81.274 33.2861 79.8095 32.1837 78.2478C30.6521 76.0792 29.3853 73.7353 28.4102 71.266C26.957 67.589 26.1391 63.5909 26.0899 59.4103C26.0864 59.2734 26.0864 59.1365 26.0864 58.9996C26.0864 40.5464 41.0452 25.5859 59.5001 25.5859C59.637 25.5859 59.7756 25.5859 59.9125 25.5894C64.0932 25.6386 68.0895 26.4582 71.7665 27.9097C74.2355 28.8855 76.5793 30.1522 78.7483 31.6832C80.3121 32.7889 81.7758 34.0227 83.1255 35.3724C84.9669 37.2117 86.5873 39.2597 87.9538 41.4749C91.0989 46.5699 92.9137 52.5724 92.9137 58.9996Z"
-                           fill="#FAA300"
-                        />
-                        <path
-                           d="M83.1255 35.3724L35.8729 82.625C34.5204 81.274 33.2861 79.8095 32.1837 78.2478C30.6521 76.0792 29.3853 73.7353 28.4102 71.266C26.957 67.589 26.1391 63.5909 26.0899 59.4103C26.0864 59.2734 26.0864 59.1365 26.0864 58.9996C26.0864 40.5464 41.0452 25.5859 59.5001 25.5859C59.637 25.5859 59.7756 25.5859 59.9125 25.5894C64.0932 25.6386 68.0895 26.4582 71.7665 27.9097C74.2355 28.8855 76.5793 30.1522 78.7483 31.6832C80.3121 32.7889 81.7758 34.0227 83.1255 35.3724Z"
-                           fill="#FFBD00"
-                        />
-                        <path
-                           d="M92.9127 58.9996C92.9127 77.4527 77.9522 92.4132 59.499 92.4132C58.8654 92.4132 58.2371 92.3956 57.6123 92.3605C75.1879 91.383 89.1374 76.8191 89.1374 58.9996C89.1374 41.18 75.1879 26.6162 57.6123 25.6386C58.2371 25.6035 58.8654 25.5859 59.499 25.5859C77.9522 25.5859 92.9127 40.5464 92.9127 58.9996Z"
-                           fill="#F68E00"
-                        />
-                        <path
-                           d="M61.2212 66.2064C69.967 66.2064 77.0822 59.0911 77.0822 50.3454C77.0822 41.5997 69.9668 34.4844 61.2212 34.4844H43.7242C41.7855 34.4844 40.214 36.0559 40.214 37.9946V59.186H37.8232C35.8845 59.186 34.313 60.7576 34.313 62.6962C34.313 64.6349 35.8845 66.2064 37.8232 66.2064H40.214V70.2437H37.8232C35.8845 70.2437 34.313 71.8152 34.313 73.7539C34.313 75.6926 35.8845 77.2641 37.8232 77.2641H40.214V80.8512C40.214 82.7899 41.7855 84.3614 43.7242 84.3614C45.6629 84.3614 47.2344 82.7899 47.2344 80.8512V77.2641H59.5122C61.4509 77.2641 63.0224 75.6926 63.0224 73.7539C63.0224 71.8152 61.4509 70.2437 59.5122 70.2437H47.2344V66.2064H61.2212ZM47.2344 41.5048H61.2212C66.096 41.5048 70.0618 45.4706 70.0618 50.3454C70.0618 55.22 66.096 59.186 61.2212 59.186H47.2344V41.5048Z"
-                           fill="#F68E00"
-                        />
-                        <path
-                           d="M65.6093 66.2064C74.3552 66.2064 81.4704 59.0911 81.4704 50.3454C81.4704 41.5997 74.355 34.4844 65.6093 34.4844H48.1124C46.1737 34.4844 44.6022 36.0559 44.6022 37.9946V59.186H42.2114C40.2727 59.186 38.7012 60.7576 38.7012 62.6962C38.7012 64.6349 40.2727 66.2064 42.2114 66.2064H44.6022V70.2437H42.2114C40.2727 70.2437 38.7012 71.8152 38.7012 73.7539C38.7012 75.6926 40.2727 77.2641 42.2114 77.2641H44.6022V80.8512C44.6022 82.7899 46.1737 84.3614 48.1124 84.3614C50.0511 84.3614 51.6226 82.7899 51.6226 80.8512V77.2641H63.9004C65.8391 77.2641 67.4106 75.6926 67.4106 73.7539C67.4106 71.8152 65.8391 70.2437 63.9004 70.2437H51.6226V66.2064H65.6093ZM51.6226 41.5048H65.6093C70.4841 41.5048 74.45 45.4706 74.45 50.3454C74.45 55.22 70.4841 59.186 65.6093 59.186H51.6226V41.5048Z"
-                           fill="#FFEA94"
-                        />
-                     </g>
-                     <defs>
-                        <clipPath id="clip0_258_1266">
-                           <rect width="86" height="86" fill="white" transform="translate(16.5 16)" />
-                        </clipPath>
-                     </defs>
-                  </svg> -->
-                  <div class="rounded-title_list">
-                     <p class="rounded-title text-16">Доступные цены</p>
-                     <p class="rounded-title text-16">Быстрая доставка</p>
-                     <p class="rounded-title text-16">Качественные материалы</p>
-                  </div>
+                  <aButton :href="YMARKET_LINK" :nnStyle="true" />
                </div>
+               <img class="ymarket-logo" src="../assets/ymarket-logo.png" width="119" height="118" />
+               <div class="rounded-title_list">
+                  <p class="rounded-title text-16">Доступные цены</p>
+                  <p class="rounded-title text-16">Быстрая доставка</p>
+               </div>
+            </div>
+            <div class="_block_rounded block_best block_best-6 _block_wb">
+               <div class="flex caption-wrap">
+                  <h2 class="caption-32 text-white">Мы есть на Вайлдберриз</h2>
+                  <aButton :whiteStyle="true" :href="WB_LINK" :nnStyle="true" />
+               </div>
+               <img class="ymarket-logo" src="../assets/wb-logo.png" width="119" height="118" />
+               <div class="rounded-title_list">
+                  <p class="rounded-title text-16">Удобный сервис</p>
+                  <p class="rounded-title text-16">Качественные материалы</p>
+               </div>
+            </div>
+            <!-- <div class="block_best-container">
                <div class="_block_rounded block_best block_best-6 _block_grey">
                   <svg xmlns="http://www.w3.org/2000/svg" width="58" height="57" viewBox="0 0 58 57" fill="none">
                      <rect x="0.5" width="57" height="57" rx="28.5" fill="white" />
@@ -328,7 +302,7 @@ onMounted(() => {
                      </defs>
                   </svg>
                </div>
-            </div>
+            </div> -->
          </section>
       </div>
 
@@ -342,7 +316,7 @@ onMounted(() => {
                <productCard v-for="(product, index) in PRODUCT_LIST.data" :key="index" :product="product"/>
             </div>
             <div class="content-wrapper">
-               <Modal buttonLarge="true" buttonTitle="Заказать смесь" :showOpenButton="true"><ModalBuy :OZON_LINK="OZON_LINK" :YMARKET_LINK="YMARKET_LINK">Заказать смесь</ModalBuy></Modal>
+               <Modal buttonLarge="true" buttonTitle="Заказать смесь" :showOpenButton="true"><ModalBuy :OZON_LINK="OZON_LINK" :YMARKET_LINK="YMARKET_LINK" :WB_LINK="WB_LINK">Заказать смесь</ModalBuy></Modal>
             </div>
          </section>
       </div>
@@ -683,7 +657,7 @@ onMounted(() => {
 .block_best-wrapper {
    display: grid;
    grid-template-columns: repeat(3, 1fr);
-   grid-template-rows: 551px 667px;
+   grid-template-rows: 551px repeat(2, 338.5px);
    gap: 30px;
 
    .block_best {
@@ -749,6 +723,7 @@ onMounted(() => {
       }
 
       &-3 {
+         grid-row: span 2;
          display: flex;
          flex-direction: column;
          justify-content: space-between;
@@ -785,6 +760,7 @@ onMounted(() => {
       }
 
       &-4 {
+         grid-row: span 2;
          background-image: url('../assets/mr. brightside.png');
          background-repeat: no-repeat;
          background-position: 13% calc(100% + 3px);
@@ -800,6 +776,14 @@ onMounted(() => {
          flex-direction: column;
          justify-content: space-between;
 
+         .caption-wrap {
+            justify-content: space-between;
+         }
+
+         .caption-32 {
+            max-width: 390px;
+         }
+
          .coin-vector {
             position: absolute;
             top: 45%;
@@ -808,8 +792,8 @@ onMounted(() => {
 
          .ymarket-logo {
             position: absolute;
-            top: 35%;
-            right: 60px;
+            bottom: 40px;
+            right: 40px;
 
             width: 120px;
             height: 120px;
@@ -823,16 +807,43 @@ onMounted(() => {
          }
       }
 
-      &-6 {
-         height: 230px;
+      // &-6 {
+      //    height: 230px;
 
+      //    display: flex;
+      //    align-items: flex-end;
+      //    gap: 28px;
+
+      //    background-image: url('../assets/cement.png');
+      //    background-repeat: no-repeat;
+      //    background-size: cover;
+      // }
+
+      &-6 {         
+         flex: 1;
          display: flex;
-         align-items: flex-end;
-         gap: 28px;
+         flex-direction: column;
+         justify-content: space-between;
 
-         background-image: url('../assets/cement.png');
-         background-repeat: no-repeat;
-         background-size: cover;
+         .caption-wrap {
+            justify-content: space-between;
+         }
+
+         .ymarket-logo {
+            position: absolute;
+            bottom: 40px;
+            right: 40px;
+
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
+         }
+
+         .rounded-title_list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+         }
       }
    }
 
@@ -843,7 +854,7 @@ onMounted(() => {
    }
 
    @media (max-width: 1919px) {
-      grid-template-rows: 498px 522px;
+      grid-template-rows: 498px 522px auto;
 
       .block_best {
          &-1 {
@@ -857,6 +868,8 @@ onMounted(() => {
          }
 
          &-3 {
+            grid-row: unset;
+
             .caption-32 {
                max-width: 287px;
             }
@@ -877,6 +890,7 @@ onMounted(() => {
          }
 
          &-4 {
+            grid-row: unset;
             background-size: 341px 331px;
 
             .caption-32 {
@@ -887,14 +901,25 @@ onMounted(() => {
          }
 
          &-6 {
-            display: none;
+            grid-column: span 3;
+            gap: 20px;
+
+            .caption-wrap {
+               justify-content: flex-start;
+               gap: 20px;
+            }
+
+            .rounded-title_list {
+               flex-direction: row;
+               gap: 14px;
+            }
          }
       }
    }
 
    @media (max-width: 1439px) {
       grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: 498px 522px auto;
+      grid-template-rows: 498px 522px repeat(2, auto);
 
       .block_best {
          padding: 30px;
@@ -935,7 +960,17 @@ onMounted(() => {
          }
 
          &-5 {
+            grid-column: span 2;
             gap: 20px;
+
+            .caption-wrap {
+               justify-content: flex-start;
+               gap: 20px;
+            }
+
+            .caption-32 {
+               max-width: unset;
+            }
 
             .rounded-title_list {
                flex-direction: row;
@@ -960,10 +995,19 @@ onMounted(() => {
                aspect-ratio: 1 / 1;
             }
          }
-      }
 
-      .block_best-container {
-         grid-column: span 2;
+         &-6 {
+            grid-column: span 2;
+
+            .ymarket-logo {
+               top: 30px;
+               right: 30px;
+
+               width: auto;
+               height: calc(100% - 60px);
+               aspect-ratio: 1 / 1;
+            }
+         }
       }
    }
 
@@ -1010,6 +1054,14 @@ onMounted(() => {
             gap: 50px;
 
             .caption-32 {
+               max-width: 320px;
+            }
+         }
+
+         &-6 {
+            gap: 50px;
+
+            .caption-32 {
                max-width: 722px;
             }
          }
@@ -1018,7 +1070,7 @@ onMounted(() => {
 
    @media (max-width: 999px) {
       padding-top: 10px;
-      grid-template-rows: auto 320px 406px auto;
+      grid-template-rows: auto 320px 406px auto auto;
       gap: 20px;
 
       .block_best {
@@ -1063,6 +1115,19 @@ onMounted(() => {
             gap: 24px;
 
             .caption-32 {
+               max-width: 280px;
+            }
+
+            .rounded-title_list {
+               gap: 10px;
+               flex-direction: column;
+            }
+         }
+
+         &-6 {
+            gap: 24px;
+
+            .caption-32 {
                max-width: 442px;
             }
 
@@ -1076,7 +1141,7 @@ onMounted(() => {
 
    @media (max-width: 719px) {
       grid-template-columns: 1fr;
-      grid-template-rows: auto 320px 390px 406px auto;
+      grid-template-rows: auto 320px 390px 406px auto auto;
 
       .block_best {
          padding: 20px;
@@ -1103,7 +1168,16 @@ onMounted(() => {
          }
 
          &-5 {
-            // gap: 76px;
+            grid-column: unset;
+            gap: 76px;
+
+            .caption-wrap {
+               justify-content: space-between;
+            }
+
+            .caption-32 {
+               max-width: unset;
+            }
 
             .coin-vector {
                top: unset;
@@ -1121,10 +1195,27 @@ onMounted(() => {
                width: 103px;
             }
          }
-      }
+         
+         &-6 {
+            grid-column: unset;
+            gap: 76px;
 
-      .block_best-container {
-         grid-column: unset;
+            .caption-wrap {
+               justify-content: space-between;
+            }
+
+            .caption-32 {
+               max-width: unset;
+            }
+
+            .ymarket-logo {
+               top: unset;
+               right: 20px;
+               bottom: 20px;
+               height: 103px;
+               width: 103px;
+            }
+         }
       }
    }
 
@@ -1174,7 +1265,7 @@ onMounted(() => {
          }
 
          &-5 {
-            gap: 40px;
+            gap: 60px;
 
             .coin-vector {
                height: 70px;
@@ -1186,10 +1277,20 @@ onMounted(() => {
                width: 70px;
             }
          }
-      }
 
-      .block_best-container {
-         grid-column: unset;
+         &-6 {
+            gap: 60px;
+
+            .coin-vector {
+               height: 70px;
+               width: 70px;
+            }
+
+            .ymarket-logo {
+               height: 70px;
+               width: 70px;
+            }
+         }
       }
    }
 }

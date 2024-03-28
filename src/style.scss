@@ -435,6 +435,14 @@ button {
          animation: highlightGradientRadial 4s ease-in-out infinite;
       }
    }
+
+   &_ymarket {
+      background: linear-gradient(270deg, #E8E8E8 0%, #FFDE50 100%);
+   }
+
+   &_wb {
+      background: linear-gradient(90deg, #DF42C1 0%, #782CE9 100%);
+   }
 }
 
 .phone {
@@ -563,6 +571,10 @@ button {
    right: 40px;
 
    transition: all 0.2s ease-in-out;
+
+   &.nn-style {
+      position: unset;
+   }
 
    svg {
       border-radius: 50%;

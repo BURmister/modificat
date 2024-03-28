@@ -1,10 +1,10 @@
 <script setup>
-const props = defineProps(['href', 'whiteStyle', 'bottomStyle']);
+const props = defineProps(['href', 'whiteStyle', 'bottomStyle', 'nnStyle']);
 defineEmits(['handleClick']);
 </script>
 
 <template>
-   <a v-if="href" :href="href" target="_blank" class="a-button" :class="{ 'a-button_white': whiteStyle, 'a-button_bottom': bottomStyle }">
+   <a v-if="href" :href="href" target="_blank" class="a-button" :class="{ 'a-button_white': whiteStyle, 'a-button_bottom': bottomStyle, 'nn-style': nnStyle }">
       <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" fill="none">
          <circle cx="25" cy="25" r="25" fill="#4328EB" />
          <path
@@ -23,7 +23,7 @@ defineEmits(['handleClick']);
       v-else
       type="button"
       class="a-button"
-      :class="{ 'a-button_white': whiteStyle, 'a-button_bottom': bottomStyle }"
+      :class="{ 'a-button_white': whiteStyle, 'a-button_bottom': bottomStyle, 'nn-style': nnStyle }"
       @click="$emit('handleClick')"
    >
       <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" fill="none">
