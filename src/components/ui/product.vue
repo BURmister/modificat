@@ -1,6 +1,6 @@
 <script setup>
-const props = defineProps(['product'])
-console.log(props.product)
+const props = defineProps(['product']);
+// console.log(props.product)
 </script>
 
 <template>
@@ -131,7 +131,7 @@ console.log(props.product)
    @media (max-width: 479px) {
       min-width: 210px;
       scroll-snap-align: center;
-      scroll-snap-stop: always
+      scroll-snap-stop: always;
    }
 }
 </style>

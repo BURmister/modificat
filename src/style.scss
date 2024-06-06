@@ -36,6 +36,33 @@
    --blue-light: rgba(67, 40, 235, 0.2);
    --black-light: rgb(23, 32, 38, 0.2);
 
+   // ui sizes
+   --video-item-height: 925px;
+
+   @media (max-width: 1919px) {
+      --video-item-height: 760px;
+   }
+
+   @media (max-width: 1439px) {
+      --video-item-height: 674px;
+   }
+
+   @media (max-width: 1279px) {
+      --video-item-height: 508px;
+   }
+
+   @media (max-width: 999px) {
+      --video-item-height: 368px;
+   }
+
+   @media (max-width: 719px) {
+      --video-item-height: 242px;
+   }
+
+   @media (max-width: 479px) {
+      --video-item-height: 172px;
+   }
+
    color: var(--black);
    background-color: var(--white-bg);
 }
@@ -710,7 +737,7 @@ button {
          //    &:before {
          //       opacity: 0;
          //    }
-         
+
          //    p {
          //       letter-spacing: 0px;
          //       color: var(--pink);
@@ -1011,4 +1038,15 @@ textarea.norm-input {
 
 .grecaptcha-badge {
    z-index: 23;
+}
+
+._video_iframe_wrapper iframe {
+   width: 100%;
+   height: var(--video-item-height);
+   object-fit: cover;
+   object-position: center;
+
+   &::-webkit-media-controls-fullscreen-button {
+      display: none;
+   }
 }

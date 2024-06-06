@@ -13,6 +13,7 @@ import reviewCard from './ui/review.vue';
 import Form from './ui/form.vue';
 import Modal from './ui/modal.vue';
 import ModalBuy from './ui/modal-buy.vue';
+import VideoItem from './ui/videoItem.vue';
 
 // import AnimA from '../assets/anim/anim-1.json';
 import AnimB from '../assets/anim/anim-2.json';
@@ -29,9 +30,10 @@ const TITLE_LIST = ref([
    'Какую смесь приготовить<br> для штукатурки глиной?',
 ]);
 
-const props = defineProps(['REVIEW_LIST', 'PRODUCT_LIST', 'OZON_LINK', 'YMARKET_LINK', 'WB_LINK']);
+const props = defineProps(['REVIEW_LIST', 'VIDEO_LIST', 'PRODUCT_LIST', 'OZON_LINK', 'YMARKET_LINK', 'WB_LINK']);
 
 const mainSection = ref(null);
+const videoBlock = ref(null);
 const featureSection = ref(null);
 const exampleSection = ref(null);
 const aboutSection = ref(null);
@@ -58,9 +60,25 @@ onMounted(() => {
       // delay: 1,
    });
 
-   gsap.from(featureSection.value, {
+   gsap.from(videoBlock.value, {
       scrollTrigger: {
          trigger: mainSection.value,
+         start: `80% 70%`,
+         markers: false,
+         end: `85% 60%`,
+         // scrub: 1,
+      },
+      // x: '-5%',
+      opacity: 0,
+      scale: 0.95,
+      duration: 1,
+
+      // rotation: 2,
+   });
+
+   gsap.from(featureSection.value, {
+      scrollTrigger: {
+         trigger: videoBlock.value,
          start: `80% 70%`,
          markers: false,
          end: `85% 60%`,
@@ -190,6 +208,15 @@ onMounted(() => {
          </section>
       </div>
 
+      <!-- Блок с видео -->
+      <div ref="videoBlock" class="content-wrapper" v-if="VIDEO_LIST.length > 0">
+         <section id="videos" class="land-section block_videos-wrapper">
+            <div class="_block_rounded block_videos _block_grey">
+               <VideoItem :video="VIDEO_LIST[0]" />
+            </div>
+         </section>
+      </div>
+
       <!-- Второй блок | Мы - лучшие -->
       <div ref="featureSection" id="features" class="content-wrapper">
          <h2 class="caption-100">
@@ -240,7 +267,9 @@ onMounted(() => {
             <div class="_block_rounded _block_blue block_best block_best-4">
                <h2 class="caption-32 text-white">Индивидуальные решения</h2>
                <p class="text-20 text-white">Подберём смесь под ваш запрос.</p>
-               <Modal buttonWhiteStyle="true" buttonBottomStyle="true" :showOpenButton="true"><Form checkId="127351" canShowSuccess="true">Индивидуальные решения</Form></Modal>
+               <Modal buttonWhiteStyle="true" buttonBottomStyle="true" :showOpenButton="true"
+                  ><Form checkId="127351" canShowSuccess="true">Индивидуальные решения</Form></Modal
+               >
             </div>
             <div class="_block_rounded block_best block_best-5 _block_ymarket">
                <div class="flex caption-wrap">
@@ -313,10 +342,12 @@ onMounted(() => {
          </div>
          <section class="land-section block_products-wrapper flex flex-col">
             <div class="product-list content-wrapper">
-               <productCard v-for="(product, index) in PRODUCT_LIST.data" :key="index" :product="product"/>
+               <productCard v-for="(product, index) in PRODUCT_LIST.data" :key="index" :product="product" />
             </div>
             <div class="content-wrapper">
-               <Modal buttonLarge="true" buttonTitle="Заказать смесь" :showOpenButton="true"><ModalBuy :OZON_LINK="OZON_LINK" :YMARKET_LINK="YMARKET_LINK" :WB_LINK="WB_LINK">Заказать смесь</ModalBuy></Modal>
+               <Modal buttonLarge="true" buttonTitle="Заказать смесь" :showOpenButton="true"
+                  ><ModalBuy :OZON_LINK="OZON_LINK" :YMARKET_LINK="YMARKET_LINK" :WB_LINK="WB_LINK">Заказать смесь</ModalBuy></Modal
+               >
             </div>
          </section>
       </div>
@@ -377,7 +408,7 @@ onMounted(() => {
          <h2 class="caption-100"><span class="highlight-gradient">Отзывы</span></h2>
          <section class="land-section block_review-wrapper flex flex-col">
             <div class="review-list">
-               <reviewCard v-for="(review, index) in REVIEW_LIST.data" :key="index" :review="review"/>
+               <reviewCard v-for="(review, index) in REVIEW_LIST.data" :key="index" :review="review" />
             </div>
             <aButtonLarge :href="OZON_LINK" title="Смотреть на Ozon" pinkStyle="true" />
          </section>
@@ -654,6 +685,14 @@ onMounted(() => {
    }
 }
 
+.block_video-wrapper {
+   .block_video {
+      width: 100%;
+      height: var(--video-item-height);
+      overflow: hidden;
+   }
+}
+
 .block_best-wrapper {
    display: grid;
    grid-template-columns: repeat(3, 1fr);
@@ -819,7 +858,7 @@ onMounted(() => {
       //    background-size: cover;
       // }
 
-      &-6 {         
+      &-6 {
          flex: 1;
          display: flex;
          flex-direction: column;
@@ -1195,7 +1234,7 @@ onMounted(() => {
                width: 103px;
             }
          }
-         
+
          &-6 {
             grid-column: unset;
             gap: 76px;
