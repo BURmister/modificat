@@ -10,6 +10,7 @@ import Burger from './components/burger.vue';
 import Header from './components/header.vue';
 import Main from './components/main.vue';
 import Footer from './components/footer.vue';
+import CookieNotice from './components/ui/cookie.vue';
 
 const SERVER_PROTOCOL = import.meta.env.VITE_SERVER_PROTOCOL;
 const SERVER_DOMAIN = import.meta.env.VITE_SERVER_DOMAIN;
@@ -108,6 +109,7 @@ useRecaptchaProvider();
          :WB_LINK="WB_LINK"
       />
       <Footer ref="FOOTER" :CONTACTS_DATA="CONTACTS_DATA" />
+      <CookieNotice />
    </div>
 </template>
 

@@ -85,7 +85,7 @@ const props = defineProps(['CONTACTS_DATA']);
          </div>
          <div class="footer-block footer-copy_wrap">
             <div class="footer-copy">
-               <p class="text-16 text-white">ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ «МОДИФИКАТ» © 2024</p>
+               <p class="text-16 text-white">ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ «МОДИФИКАТ» © {{ new Date().getFullYear() }}</p>
                <a class="text-16 text-white footer-link link-bottom_line" href="/politics">Политика конфиденциальности</a>
                <a href="https://buroburakova.ru" class="made-by-BuroBurakova">
                   <p class="text-16 text-white">Сайт разработан:</p>

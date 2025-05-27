@@ -415,7 +415,7 @@ onMounted(() => {
       </div>
 
       <!-- Шестой блок | Вопросы -->
-      <div ref="questionSection" class="content-wrapper">
+      <div ref="questionSection" class="content-wrapper" id="form">
          <section ref="animTitleOverlay" class="land-section _block_rounded _block_blue-gr-radiant block-questions_wrapper">
             <div class="block_questions">
                <Form checkId="13126" :successBlank="true">Засыпьте нас<br />вопросами</Form>
