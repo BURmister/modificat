@@ -2,7 +2,7 @@
 import { ref } from 'vue';
 import { useIMask } from 'vue-imask';
 import { Vue3Lottie } from 'vue3-lottie';
-import { useChallengeV3 } from 'vue-recaptcha/head'
+import { useChallengeV3 } from 'vue-recaptcha/head';
 import { postData } from '../../hooks/useAxios.js';
 import Modal from './modal.vue';
 
@@ -10,7 +10,6 @@ import AnimD from '../../assets/anim/anim-4.json';
 
 const SERVER_PROTOCOL = import.meta.env.VITE_SERVER_PROTOCOL;
 const SERVER_DOMAIN = import.meta.env.VITE_SERVER_DOMAIN;
-
 
 const props = defineProps(['title', 'checkId', 'successBlank']);
 const successSubmit = ref(false);
@@ -24,18 +23,16 @@ const { el } = useIMask({ mask: '{+7 (9}00{) }000{-}00{-}00' });
 const { execute } = useChallengeV3('submit');
 
 const submitForm = async () => {
-   
    // console.log({
    //    NAME: NAME.value,
    //    PHONE: PHONE.value,
    //    EMAIL: EMAIL.value,
    //    TEXT: QUESTION.value
    // })
-      
-      
+
    try {
       const captcha = await execute();
-      const data = await postData(SERVER_PROTOCOL + SERVER_DOMAIN + "/ajax/send_form.php", {
+      const data = await postData(SERVER_PROTOCOL + SERVER_DOMAIN + '/ajax/send_form.php', {
          NAME: NAME.value,
          PHONE: PHONE.value,
          EMAIL: EMAIL.value,
@@ -87,7 +84,7 @@ const submitForm = async () => {
          </div>
          <div class="form-check">
             <div class="checkbox-wrap">
-               <input class="checkbox-input" type="checkbox" name="CONFIRM_PRIVACY" required :id="checkId" checked />
+               <input class="checkbox-input" type="checkbox" name="CONFIRM_PRIVACY" required :id="checkId" />
                <label class="checkbox-label" :for="checkId">
                   <svg class="active-check" xmlns="http://www.w3.org/2000/svg" width="24" height="23" viewBox="0 0 24 23" fill="none">
                      <rect x="1.5" y="1" width="21" height="21" rx="7" fill="#F0C6FB" stroke="#F0C6FB" stroke-width="2" />
@@ -113,10 +110,20 @@ const submitForm = async () => {
                <Vue3Lottie :animationData="AnimD" />
             </div>
             <svg class="line-vector left-line" width="569" height="285" viewBox="0 0 569 285" fill="none" xmlns="http://www.w3.org/2000/svg">
-               <path d="M1.5 38.0001C20.3333 19.0001 66.3 -13.2999 99.5 9.50014C141 38.0001 100.5 104 83 99.5C65.5 95 113 30 162 51C211 72 192 244.5 162 244.5C132 244.5 197.607 138 396.5 138C492.5 138 567.5 182 567.5 283.5" stroke="#FFD747" stroke-width="2" stroke-linecap="round"/>
+               <path
+                  d="M1.5 38.0001C20.3333 19.0001 66.3 -13.2999 99.5 9.50014C141 38.0001 100.5 104 83 99.5C65.5 95 113 30 162 51C211 72 192 244.5 162 244.5C132 244.5 197.607 138 396.5 138C492.5 138 567.5 182 567.5 283.5"
+                  stroke="#FFD747"
+                  stroke-width="2"
+                  stroke-linecap="round"
+               />
             </svg>
             <svg class="line-vector right-line" width="201" height="327" viewBox="0 0 201 327" fill="none" xmlns="http://www.w3.org/2000/svg">
-               <path d="M199.5 1C149.167 3.5 46.2 18.4 37 58C25.5 107.5 140.5 142.5 168.5 141C196.5 139.5 148 121 64.5002 141C-18.9998 161 -14.4998 216.5 47.0002 234C108.5 251.5 180.5 267 164.5 291C151.7 310.2 128.167 322 118 325.5" stroke="#FFD747" stroke-width="2" stroke-linecap="round"/>
+               <path
+                  d="M199.5 1C149.167 3.5 46.2 18.4 37 58C25.5 107.5 140.5 142.5 168.5 141C196.5 139.5 148 121 64.5002 141C-18.9998 161 -14.4998 216.5 47.0002 234C108.5 251.5 180.5 267 164.5 291C151.7 310.2 128.167 322 118 325.5"
+                  stroke="#FFD747"
+                  stroke-width="2"
+                  stroke-linecap="round"
+               />
             </svg>
          </div>
       </Modal>
@@ -154,7 +161,7 @@ const submitForm = async () => {
             </div>
             <div class="form-check">
                <div class="checkbox-wrap">
-                  <input class="checkbox-input" type="checkbox" name="CONFIRM_PRIVACY" required :id="checkId" checked />
+                  <input class="checkbox-input" type="checkbox" name="CONFIRM_PRIVACY" required :id="checkId" />
                   <label class="checkbox-label" :for="checkId">
                      <svg class="active-check" xmlns="http://www.w3.org/2000/svg" width="24" height="23" viewBox="0 0 24 23" fill="none">
                         <rect x="1.5" y="1" width="21" height="21" rx="7" fill="#F0C6FB" stroke="#F0C6FB" stroke-width="2" />
@@ -180,17 +187,26 @@ const submitForm = async () => {
             <Vue3Lottie :animationData="AnimD" />
          </div>
          <svg class="line-vector left-line" width="569" height="285" viewBox="0 0 569 285" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M1.5 38.0001C20.3333 19.0001 66.3 -13.2999 99.5 9.50014C141 38.0001 100.5 104 83 99.5C65.5 95 113 30 162 51C211 72 192 244.5 162 244.5C132 244.5 197.607 138 396.5 138C492.5 138 567.5 182 567.5 283.5" stroke="#FFD747" stroke-width="2" stroke-linecap="round"/>
+            <path
+               d="M1.5 38.0001C20.3333 19.0001 66.3 -13.2999 99.5 9.50014C141 38.0001 100.5 104 83 99.5C65.5 95 113 30 162 51C211 72 192 244.5 162 244.5C132 244.5 197.607 138 396.5 138C492.5 138 567.5 182 567.5 283.5"
+               stroke="#FFD747"
+               stroke-width="2"
+               stroke-linecap="round"
+            />
          </svg>
          <svg class="line-vector right-line" width="201" height="327" viewBox="0 0 201 327" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M199.5 1C149.167 3.5 46.2 18.4 37 58C25.5 107.5 140.5 142.5 168.5 141C196.5 139.5 148 121 64.5002 141C-18.9998 161 -14.4998 216.5 47.0002 234C108.5 251.5 180.5 267 164.5 291C151.7 310.2 128.167 322 118 325.5" stroke="#FFD747" stroke-width="2" stroke-linecap="round"/>
+            <path
+               d="M199.5 1C149.167 3.5 46.2 18.4 37 58C25.5 107.5 140.5 142.5 168.5 141C196.5 139.5 148 121 64.5002 141C-18.9998 161 -14.4998 216.5 47.0002 234C108.5 251.5 180.5 267 164.5 291C151.7 310.2 128.167 322 118 325.5"
+               stroke="#FFD747"
+               stroke-width="2"
+               stroke-linecap="round"
+            />
          </svg>
       </div>
    </Transition>
 </template>
 
 <style scoped lang="scss">
-
 .success-enter-active,
 .success-leave-active {
    transition: opacity 0.4s ease-in-out;
@@ -354,7 +370,6 @@ const submitForm = async () => {
       }
 
       &.haveSubmited {
-
          .haveSubmitted_caption {
             gap: 30px;
          }
